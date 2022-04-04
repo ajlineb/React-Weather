@@ -11,6 +11,7 @@ function App() {
     <Router basename="/weather_dashboard">
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );
