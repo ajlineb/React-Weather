@@ -1,17 +1,16 @@
-import {
-  HashRouter as Router,
-  Link,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+
+//import components
+
+//import pages
+import Home from "./pages/Home";
 
 function App() {
   return (
     <Router basename="/weather_dashboard">
       <Routes>
-        <Route></Route>
+        <Route exact path="/" element={<Home />}></Route>
       </Routes>
     </Router>
   );
