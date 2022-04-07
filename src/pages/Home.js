@@ -17,9 +17,9 @@ export default function Home() {
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
       <div className="flex-1 grid grid-col-3 grid-flow-col gap-4 p-5">
-        <div className="bg-slate-400">ree</div>
-        <div className="bg-slate-500">ree</div>
-        <div className="bg-slate-600">ree</div>
+        <div className="bg-slate-400 rounded-lg">ree</div>
+        <div className="bg-slate-500 rounded-lg">ree</div>
+        <div className="bg-slate-600 rounded-lg">ree</div>
       </div>
     </div>
   );
