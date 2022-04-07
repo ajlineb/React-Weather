@@ -10,7 +10,7 @@ export default function Home() {
   //should contain a map tab at least kinda want to try it out
 
   return (
-    <div className="h-screen pb-20 flex flex-row">
+    <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
       <div></div>
     </div>
