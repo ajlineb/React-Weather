@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Sidetabs from "../components/Sidetabs";
 
 export default function Home() {
   //brainstorm ideas that this home page should have on it..
@@ -7,8 +8,10 @@ export default function Home() {
 
   //not for this page but header tabs
   //should contain a map tab at least kinda want to try it out
+
   return (
-    <div className="h-screen">
+    <div className="h-screen pb-20 flex flex-row">
+      <Sidetabs />
       <div></div>
     </div>
   );
