@@ -7,10 +7,10 @@ export default function SearchBox() {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === "") {
-      alert("Please enter a city name");
+      alert("Please enter a city name"); //if search button is clicked with no info
     } else {
-      ApiSearch(text);
-      setText("");
+      ApiSearch(text); //sends the text in the search bar to the apiSearch function
+      setText(""); //resets the searchbar to empty
     }
   };
 
