@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import ApiSearch from "../utils/apiSearch";
 
+//handles what the search bar does
+//updates as info is written in the onchange function
+//onsubmit the data is passed from the searchbar to the ApiSearch function
+
 export default function SearchBox() {
   const [text, setText] = useState("");
 
