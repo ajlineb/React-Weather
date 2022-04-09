@@ -9,12 +9,16 @@ export default function Sidetabs() {
       <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
         Maps
       </div>
-      <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
-        Linkdin
-      </div>
-      <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
-        Github
-      </div>
+      <a href="https://www.linkedin.com/in/anthjlin/">
+        <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
+          Linkdin
+        </div>
+      </a>
+      <a href="https://github.com/ajlineb">
+        <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
+          Github
+        </div>
+      </a>
     </div>
   );
 }
