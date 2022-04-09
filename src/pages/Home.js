@@ -46,7 +46,12 @@ export default function Home() {
               <div className="p-3">Temp Avg</div>
             </div>
           </div>
-          <div className="h-1/3 bg-indigo-700">reee</div>
+          <div className="h-1/3 bg-indigo-700">
+            <div className="p-3 h-1/4">Alt info for the current day</div>
+            <div className="p-3">Wind info</div>
+            <div className="p-3">Index info</div>
+            <div className="p-3">Extra info about the day maybe holiday?</div>
+          </div>
         </div>
       </div>
     </div>
