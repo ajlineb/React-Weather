@@ -16,10 +16,16 @@ export default function Home() {
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
-      <div className="flex-1 grid grid-col-3 grid-flow-col gap-4 p-5">
-        <div className="bg-slate-400 rounded-lg"></div>
-        <div className="bg-slate-500 rounded-lg"></div>
-        <div className="bg-slate-600 rounded-lg"></div>
+      <div className="flex-1 grid grid-col-2 grid-flow-col gap-4 p-5 bg-slate-300">
+        <div className="bg-slate-400 rounded-lg flex-1 flex-column">
+          <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
+            <div className="p-8">current Day</div>
+            <div className="p-8">Animated image</div>
+            <div className="p-8">Weather that day</div>
+            <div className="p-8">Temp Avg</div>
+          </div>
+        </div>
+        <div className="bg-slate-400 rounded-lg flex-1 flex-column"></div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function Header() {
         </a>
       </div>
 
-      <form className="city-search basis-1/4 flex justify-center items-center ">
+      <form className="city-search basis-1/3 flex justify-center items-center ">
         <input
           className="px-3 py-2 w-1/2 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
           type="text"
