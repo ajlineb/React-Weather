@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
+import GetLocation from "../utils/getLocation";
 
 export default function Header() {
+  GetLocation();
   return (
     <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="w-28 bg-slate-900">
@@ -10,6 +12,7 @@ export default function Header() {
         </a>
       </div>
       <SearchBar />
+      <div></div>
     </div>
   );
 }
