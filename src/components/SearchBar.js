@@ -23,6 +23,7 @@ export default function SearchBox() {
   const onChange = (e) => {
     setText(e.target.value);
   };
+
   return (
     <form
       onSubmit={onSubmit}

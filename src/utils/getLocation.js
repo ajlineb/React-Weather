@@ -1,21 +1,43 @@
 //this will be used to get the users location
 //It will either send the info needed or it will send a false response
 //if false the user will need to type in a city for location info
+import React, { useState } from "react";
 
 export default function GetLocation() {
-  const showPosition = (position) => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    let location = `Latitude: ${lat} Longitude: ${lon}`;
-    console.log(location);
+  const [lat, setLat] = useState(null);
+  const [long, setLong] = useState(null);
+  const [status, setStatus] = useState(null);
 
-    return [lat, lon];
-  };
-  const getLoc = () => {
-    if (navigator.geolocation) {
-      return navigator.geolocation.getCurrentPosition(showPosition);
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setStatus("Geolocation is not supported by this web browser.");
+    } else {
+      setStatus("Locating...");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus(null);
+          setLat(position.coords.latitude);
+          setLong(position.coords.longitude);
+        },
+        () => {
+          setStatus("Unable to get location.");
+        }
+      );
     }
-    return false;
   };
-  return getLoc();
+
+  return (
+    <div className="p-1">
+      <button
+        className="px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
+        onClick={getLocation}
+      >
+        Get Location
+      </button>
+      {lat && <h1>Coordinates</h1>}
+      <p>{status}</p>
+      {lat && <p>Latitude: {lat}</p>}
+      {long && <p>Longitude: {long}</p>}
+    </div>
+  );
 }
