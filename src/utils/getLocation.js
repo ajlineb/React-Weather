@@ -37,10 +37,18 @@ export default function GetLocation() {
       >
         Get Location
       </button>
-      {lat && <h1>Coordinates</h1>}
+      {lat && <h1 className="p-2 font-bold">Coordinates:</h1>}
       <p>{status}</p>
-      {lat && <p>Latitude: {lat}</p>}
-      {long && <p>Longitude: {long}</p>}
+      {lat && (
+        <p className="p-2">
+          Latitude: <span className="font-bold text-green-400">{lat}</span>
+        </p>
+      )}
+      {long && (
+        <p className="p-2">
+          Longitude: <span className="font-bold text-teal-300">{long}</span>
+        </p>
+      )}
     </div>
   );
 }
