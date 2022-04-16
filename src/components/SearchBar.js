@@ -32,13 +32,13 @@ export default function SearchBox() {
     >
       <div className=" w-1/2 shrink relative">
         <img
-          className="absolute right-3 h-5 top-1/2 -translate-y-1/2"
+          className="absolute left-3 h-5 top-1/2 -translate-y-1/2"
           type="image"
           src={image}
           alt="magnifier"
         ></img>
         <input
-          className="w-full pl-2 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
+          className="w-full pl-9 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
           id="city_search"
           type="search"
           placeholder="Search a City..."
