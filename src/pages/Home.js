@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Sidetabs from "../components/Sidetabs";
-import ApiSearch from "../utils/apiSearch";
 
 export default function Home() {
   //brainstorm ideas that this home page should have on it..
@@ -44,6 +43,9 @@ export default function Home() {
   const [nnnextDayWeather, setNNNextDayWeatehr] = useState("Expected Weather");
   const [nnnextDayAvg, setNNNextDayAvg] = useState("Temp Avg");
 
+  const handlePrevious = () => {};
+  const handleNext = () => {};
+
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
@@ -54,6 +56,23 @@ export default function Home() {
             <div className="p-8 h-1/3">{currentDayWeatherImage}</div>
             <div className="p-8">{currentDayWeather}</div>
             <div className="p-8">{currentDayAvg}</div>
+          </div>
+          <div className="p-3 flex flex-col justify-center items-center">
+            <div className="font-bold">Change Through Cities</div>
+            <div>
+              <button
+                onClick={handlePrevious}
+                className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
+              >
+                Previous
+              </button>
+              <button
+                onClick={handleNext}
+                className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
         <div className="bg-slate-400 rounded-lg flex-1 flex-column">
