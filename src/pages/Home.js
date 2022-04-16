@@ -12,7 +12,7 @@ export default function Home() {
   //for my own mental sanity...
   //grid grid-cols-3 is similar to bootstrap with a row and three columns
   //to add gutters you will need gap-x for the gutter amounts
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
 
   //current Day states
   const [currentDay, setCurrentDay] = useState("Current Day");
@@ -43,8 +43,37 @@ export default function Home() {
   const [nnnextDayWeather, setNNNextDayWeatehr] = useState("Expected Weather");
   const [nnnextDayAvg, setNNNextDayAvg] = useState("Temp Avg");
 
-  const handlePrevious = () => {};
-  const handleNext = () => {};
+  const getInfo = () => {
+    let key = [];
+    if (localStorage < 1) return;
+    for (let i = 0; i < localStorage.length; i++) {
+      key.push(localStorage.key(i));
+    }
+    let value = [];
+    key.map((k) => {
+      return value.push(JSON.parse(localStorage.getItem(k)));
+    });
+    setData(false);
+    //console.log(value[0]);
+    setCurrentDay(value[0].list[0].dt_txt);
+    setCurrentDayWeatehr(value[0].list[0].weather[0].description);
+    setCurrentDayAvg(value[0].list[0].main.temp);
+    return value;
+  };
+  useEffect(() => {
+    if (data) {
+      getInfo();
+    }
+  }, [data]);
+
+  useEffect(() => {}, [currentDay]);
+
+  const handlePrevious = () => {
+    setData(true);
+  };
+  const handleNext = () => {
+    setData(true);
+  };
 
   return (
     <div className="h-screen pb-16 flex flex-row">
