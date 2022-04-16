@@ -6,6 +6,7 @@ import ApiSearch from "./apiSearch";
 
 export default function GetLocation() {
   const [lat, setLat] = useState(null);
+  const [del, setDel] = useState(null);
   const [long, setLong] = useState(null);
   const [status, setStatus] = useState(null);
 
@@ -17,6 +18,7 @@ export default function GetLocation() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setStatus(null);
+          setDel("Delete");
           setLat(position.coords.latitude);
           setLong(position.coords.longitude);
           const array = [position.coords.latitude, position.coords.longitude];
@@ -24,9 +26,18 @@ export default function GetLocation() {
         },
         () => {
           setStatus("Unable to get location.");
+          setLat(null);
+          setLong(null);
         }
       );
     }
+  };
+
+  const handleDelete = () => {
+    setLat(null);
+    setLong(null);
+    setDel(null);
+    setStatus(null);
   };
 
   return (
@@ -38,7 +49,7 @@ export default function GetLocation() {
         Get Location
       </button>
       {lat && <h1 className="p-2 font-bold">Coordinates:</h1>}
-      <p>{status}</p>
+      <p className="p-2">{status}</p>
       {lat && (
         <p className="p-2">
           Latitude: <span className="font-bold text-green-400">{lat}</span>
@@ -48,6 +59,14 @@ export default function GetLocation() {
         <p className="p-2">
           Longitude: <span className="font-bold text-teal-300">{long}</span>
         </p>
+      )}
+      {del && (
+        <button
+          className="px-3 py-2 text-white font-bold rounded-lg bg-rose-700 hover:bg-pink-700 active:bg-pink-400 focus:outline-none focus:ring focus:ring-pink-400 shrink h-10"
+          onClick={handleDelete}
+        >
+          Delete Coords
+        </button>
       )}
     </div>
   );
