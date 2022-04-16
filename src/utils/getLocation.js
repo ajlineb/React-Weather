@@ -41,7 +41,7 @@ export default function GetLocation() {
   };
 
   return (
-    <div className="p-1 basis-1/3 flex justify-left items-center">
+    <div className="p-1 basis-1/3 flex flex-wrap justify-left items-center">
       <button
         className="px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
         onClick={getLocation}
@@ -49,7 +49,7 @@ export default function GetLocation() {
         Get Location
       </button>
       {lat && <h1 className="p-2 font-bold">Coordinates:</h1>}
-      <p className="p-2">{status}</p>
+      {status && <p className="p-2">{status}</p>}
       {lat && (
         <p className="p-2">
           Latitude: <span className="font-bold text-green-400">{lat}</span>
@@ -62,7 +62,7 @@ export default function GetLocation() {
       )}
       {del && (
         <button
-          className="px-3 py-2 text-white font-bold rounded-lg bg-rose-700 hover:bg-pink-700 active:bg-pink-400 focus:outline-none focus:ring focus:ring-pink-400 shrink h-10"
+          className=" px-3 py-2 text-white font-bold rounded-lg bg-rose-700 hover:bg-pink-700 active:bg-pink-400 focus:outline-none focus:ring focus:ring-pink-400 shrink h-10"
           onClick={handleDelete}
         >
           Delete Coords
