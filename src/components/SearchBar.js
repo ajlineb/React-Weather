@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ApiSearch from "../utils/apiSearch";
+import image from "../img/magnify.svg";
 
 //handles what the search bar does
 //updates as info is written in the onchange function
@@ -27,17 +28,24 @@ export default function SearchBox() {
   return (
     <form
       onSubmit={onSubmit}
-      className="city-search basis-1/3 flex justify-center items-center "
+      className="city-search basis-1/3 flex justify-center items-center  "
     >
-      <input
-        id="city_search"
-        className="px-3 py-2 w-1/2 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
-        type="search"
-        placeholder="Search a City..."
-        value={text}
-        onChange={onChange}
-      ></input>
-
+      <div className=" w-1/2 shrink relative">
+        <img
+          className="absolute right-3 h-5 top-1/2 -translate-y-1/2"
+          type="image"
+          src={image}
+          alt="magnifier"
+        ></img>
+        <input
+          className="w-full pl-2 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
+          id="city_search"
+          type="search"
+          placeholder="Search a City..."
+          value={text}
+          onChange={onChange}
+        ></input>
+      </div>
       <button
         className="px-3 py-2 text-white font-bold rounded-r-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
         type="submit"
