@@ -46,7 +46,33 @@ export default function ApiSearch(data, type) {
         if (d.length < 1) {
           alert("That is not a valid city");
         }
+        console.log(d[0].lat, d[0].lon);
+        const lat = d[0].lat;
+        const lon = d[0].lon;
+        findWeatherInfo(lat, lon);
+        return;
+      })
+      .catch((error) => {
+        console.error("There was a problem finding that city", error);
+      });
+  };
+
+  //gets the weather info for the desired City
+  const findWeatherInfo = (lat, lon) => {
+    const apiData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`;
+    fetch(apiData)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network Was interuppted!");
+        }
+        return res.json();
+      })
+      .then((d) => {
+        if (d.length < 1) {
+          alert("That is not a valid city");
+        }
         console.log(d);
+        localStorage.setItem(`${d.city.name}`, JSON.stringify(d));
         return d;
       })
       .catch((error) => {

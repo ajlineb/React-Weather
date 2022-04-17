@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidetabs from "../components/Sidetabs";
+import Weather from "../components/Weather";
 
 export default function Home() {
   //brainstorm ideas that this home page should have on it..
@@ -18,7 +19,7 @@ export default function Home() {
   const [currentDay, setCurrentDay] = useState("Current Day");
   const [currentDayWeatherImage, setCurrentDayWeatherImage] =
     useState("Animated image");
-  const [currentDayWeather, setCurrentDayWeatehr] =
+  const [currentDayWeather, setCurrentDayWeather] =
     useState("Weather that day");
   const [currentDayAvg, setCurrentDayAvg] = useState("Temp Avg");
 
@@ -43,9 +44,13 @@ export default function Home() {
   const [nnnextDayWeather, setNNNextDayWeatehr] = useState("Expected Weather");
   const [nnnextDayAvg, setNNNextDayAvg] = useState("Temp Avg");
 
+  //loops through local storage to get all cities and their info from previous times
   const getInfo = () => {
-    let key = [];
-    if (localStorage < 1) return;
+    const key = [];
+    if (localStorage.length < 1) {
+      setData(false);
+      return;
+    }
     for (let i = 0; i < localStorage.length; i++) {
       key.push(localStorage.key(i));
     }
@@ -53,38 +58,44 @@ export default function Home() {
     key.map((k) => {
       return value.push(JSON.parse(localStorage.getItem(k)));
     });
-    setData(false);
-    //console.log(value[0]);
+    setData(value); //will rerender the page if the value has changed with the useEffect down below
     setCurrentDay(value[0].list[0].dt_txt);
-    setCurrentDayWeatehr(value[0].list[0].weather[0].description);
+    setCurrentDayWeather(value[0].list[0].weather[0].description);
     setCurrentDayAvg(value[0].list[0].main.temp);
     return value;
   };
-  useEffect(() => {
-    if (data) {
-      getInfo();
-    }
-  }, [data]);
 
-  useEffect(() => {}, [currentDay]);
+  //to get the information from the local storage on load
+  //a useEffect will trigger once if the brackets have no update parameters! great for on load
+  useEffect(() => {
+    console.log("1st effect");
+    getInfo();
+  }, []);
+
+  useEffect(() => {
+    console.log("2nd effect");
+    getInfo();
+  }, []);
 
   const handlePrevious = () => {
-    setData(true);
+    // setData(true);
   };
   const handleNext = () => {
-    setData(true);
+    // setData(true);
   };
-
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
       <div className="flex-1 grid grid-col-2 grid-flow-col gap-4 p-5 bg-slate-300">
         <div className="bg-slate-400 rounded-lg flex-1 flex-column">
           <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
-            <div className="p-8">{currentDay}</div>
+            <div className="p-8">Todays Date: {currentDay}</div>
             <div className="p-8 h-1/3">{currentDayWeatherImage}</div>
-            <div className="p-8">{currentDayWeather}</div>
-            <div className="p-8">{currentDayAvg}</div>
+            <div className="p-8">Current Weather: {currentDayWeather}</div>
+            <div className="p-8">
+              Temp: {Math.floor(currentDayAvg - 273)}°C or{" "}
+              {Math.floor(((currentDayAvg - 273) * 9) / 5 + 32)}°F
+            </div>
           </div>
           <div className="p-3 flex flex-col justify-center items-center">
             <div className="font-bold">Change Through Cities</div>
