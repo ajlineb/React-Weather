@@ -86,6 +86,7 @@ export default function Home() {
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
+
       <div className="flex-1 grid grid-col-2 grid-flow-col gap-4 p-5 bg-slate-300">
         <div className="bg-slate-400 rounded-lg flex-1 flex-column">
           <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
