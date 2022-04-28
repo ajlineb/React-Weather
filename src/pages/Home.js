@@ -14,6 +14,7 @@ export default function Home() {
   //grid grid-cols-3 is similar to bootstrap with a row and three columns
   //to add gutters you will need gap-x for the gutter amounts
   const [data, setData] = useState(false);
+  const [city, setCity] = useState(null);
 
   //current Day states
   const [currentDay, setCurrentDay] = useState("Current Day");
@@ -65,21 +66,15 @@ export default function Home() {
     return value;
   };
 
-  //to get the information from the local storage on load
-  //a useEffect will trigger once if the brackets have no update parameters! great for on load
   useEffect(() => {
-    console.log("1st effect");
+    if (localStorage.length < 1) {
+      return;
+    }
+    setCity(Object.keys(localStorage));
     getInfo();
   }, []);
 
-  useEffect(() => {
-    console.log("2nd effect");
-    getInfo();
-  }, []);
-
-  const handlePrevious = () => {
-    // setData(true);
-  };
+  const handlePrevious = () => {};
   const handleNext = () => {
     // setData(true);
   };
@@ -89,6 +84,7 @@ export default function Home() {
 
       <div className="flex-1 grid grid-col-2 grid-flow-col gap-4 p-5 bg-slate-300">
         <div className="bg-slate-400 rounded-lg flex-1 flex-column">
+          <div className="text-lg font-bold flex justify-center items-center"></div>
           <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
             <div className="p-8">Todays Date: {currentDay}</div>
             <div className="p-8 h-1/3">{currentDayWeatherImage}</div>
