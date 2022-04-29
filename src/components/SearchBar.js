@@ -16,8 +16,7 @@ export default function SearchBox() {
     if (text === "") {
       alert("Please enter a city name"); //if search button is clicked with no info
     } else {
-      ApiSearchV2.getCityLocation(text);
-      //ApiSearch(text); //sends the text in the search bar to the apiSearch function
+      ApiSearchV2.getCityLocation(text); //sends the text in the search bar to the apiSearch function
       setText(""); //resets the searchbar to empty
     }
   };

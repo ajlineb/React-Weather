@@ -2,7 +2,7 @@
 //It will either send the info needed or it will send a false response
 //if false the user will need to type in a city for location info
 import React, { useState } from "react";
-import ApiSearch from "./apiSearch";
+import ApiSearchV2 from "./ApiSearchV2";
 
 export default function GetLocation() {
   const [lat, setLat] = useState(null);
@@ -22,7 +22,7 @@ export default function GetLocation() {
           setLat(position.coords.latitude);
           setLong(position.coords.longitude);
           const array = [position.coords.latitude, position.coords.longitude];
-          ApiSearch(array, true);
+          ApiSearchV2.getLocation(array);
         },
         () => {
           setStatus("Unable to get location.");
