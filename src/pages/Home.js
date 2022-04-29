@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidetabs from "../components/Sidetabs";
-import Weather from "../components/Weather";
+import Current_Weather from "../components/Current_Weather";
 
 export default function Home() {
   //brainstorm ideas that this home page should have on it..
@@ -85,15 +85,7 @@ export default function Home() {
       <div className="flex-1 grid grid-col-2 grid-flow-col gap-4 p-5 bg-slate-300">
         <div className="bg-slate-400 rounded-lg flex-1 flex-column">
           <div className="text-lg font-bold flex justify-center items-center"></div>
-          <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
-            <div className="p-8">Todays Date: {currentDay}</div>
-            <div className="p-8 h-1/3">{currentDayWeatherImage}</div>
-            <div className="p-8">Current Weather: {currentDayWeather}</div>
-            <div className="p-8">
-              Temp: {Math.floor(currentDayAvg - 273)}°C or{" "}
-              {Math.floor(((currentDayAvg - 273) * 9) / 5 + 32)}°F
-            </div>
-          </div>
+          {/* place the current day info here */}
           <div className="p-3 flex flex-col justify-center items-center">
             <div className="font-bold">Change Through Cities</div>
             <div>
