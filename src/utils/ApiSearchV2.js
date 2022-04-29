@@ -1,4 +1,5 @@
 //reworking the apiSearch
+let cityInfoValues = [];
 
 class ApiSearchV2 {
   //get users location
@@ -18,7 +19,8 @@ class ApiSearchV2 {
         //   alert("That is not a valid city");
         // }
         console.log(d);
-        localStorage.setItem(`${d.city.name}`, JSON.stringify(d));
+        cityInfoValues.push(d);
+        localStorage.setItem(`CityInfo`, JSON.stringify(cityInfoValues));
         return d;
       })
       .catch((error) => {
