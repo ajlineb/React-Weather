@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import GetLocation from "../utils/getLocation";
+import GetLocation from "../utils/GetLocation";
 
 export default function Header() {
   return (

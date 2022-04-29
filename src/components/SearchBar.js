@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ApiSearch from "../utils/apiSearch";
+import ApiSearchV2 from "../utils/ApiSearchV2";
 import image from "../img/magnify.svg";
 
 //handles what the search bar does
@@ -16,7 +16,8 @@ export default function SearchBox() {
     if (text === "") {
       alert("Please enter a city name"); //if search button is clicked with no info
     } else {
-      ApiSearch(text, false); //sends the text in the search bar to the apiSearch function
+      ApiSearchV2.getCityLocation(text);
+      //ApiSearch(text); //sends the text in the search bar to the apiSearch function
       setText(""); //resets the searchbar to empty
     }
   };
