@@ -48,29 +48,24 @@ export default function Home() {
 
   //loops through local storage to get all cities and their info from previous times
   const getInfo = () => {
-    const key = [];
-    if (localStorage.length < 1) {
+    let value = [];
+    if (localStorage.getItem("CityInfo") !== null) {
       setData(false);
       return;
     }
-    for (let i = 0; i < localStorage.length; i++) {
-      key.push(localStorage.key(i));
-    }
-    let value = [];
-    key.map((k) => {
-      return value.push(JSON.parse(localStorage.getItem(k)));
-    });
-    setData(value); //will rerender the page if the value has changed with the useEffect down below
-    setCurrentDay(value[0].list[0].dt_txt);
-    setCurrentDayWeather(value[0].list[0].weather[0].description);
-    setCurrentDayAvg(value[0].list[0].main.temp);
-    return value;
+    let storedCities = localStorage.getItem("CityInfo");
+    console.log(storedCities);
+    // key.map((k) => {
+    //   return value.push(JSON.parse(localStorage.getItem(k)));
+    // });
+    // setData(value); //will rerender the page if the value has changed with the useEffect down below
+    // setCurrentDay(value[0].list[0].dt_txt);
+    // setCurrentDayWeather(value[0].list[0].weather[0].description);
+    // setCurrentDayAvg(value[0].list[0].main.temp);
+    // return value;
   };
 
   useEffect(() => {
-    if (localStorage.length < 1) {
-      return;
-    }
     setCity(Object.keys(localStorage));
     getInfo();
   }, []);
