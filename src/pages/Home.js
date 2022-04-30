@@ -16,6 +16,7 @@ export default function Home() {
   //to add gutters you will need gap-x for the gutter amounts
   const [data, setData] = useState(false);
   const [city, setCity] = useState(null);
+  const [index, setIndex] = useState(0);
 
   //current Day states
   const [currentDay, setCurrentDay] = useState("Current Day");
@@ -47,32 +48,44 @@ export default function Home() {
   const [nnnextDayAvg, setNNNextDayAvg] = useState("Temp Avg");
 
   //loops through local storage to get all cities and their info from previous times
-  const getInfo = () => {
-    let value = [];
-    if (localStorage.getItem("CityInfo") !== null) {
+  const getInfo = (value) => {
+    if (localStorage.getItem("CityInfo") === null) {
+      console.log("none exist!");
       setData(false);
       return;
     }
-    let storedCities = localStorage.getItem("CityInfo");
+    let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
     console.log(storedCities);
-    // key.map((k) => {
-    //   return value.push(JSON.parse(localStorage.getItem(k)));
-    // });
-    // setData(value); //will rerender the page if the value has changed with the useEffect down below
-    // setCurrentDay(value[0].list[0].dt_txt);
-    // setCurrentDayWeather(value[0].list[0].weather[0].description);
-    // setCurrentDayAvg(value[0].list[0].main.temp);
-    // return value;
+    setData(storedCities); //will rerender the page if the value has changed with the useEffect down below
+    setCurrentDay(storedCities[value].list[0].dt_txt);
+    setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
+    setCurrentDayAvg(storedCities[value].list[0].main.temp);
+    return storedCities;
   };
 
   useEffect(() => {
     setCity(Object.keys(localStorage));
-    getInfo();
+    getInfo(0);
   }, []);
 
-  const handlePrevious = () => {};
+  const handlePrevious = () => {
+    let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
+    setIndex(index - 1);
+    if (index === 0) {
+      setIndex(storedCities.length - 1);
+    }
+    console.log(index);
+    return getInfo(index);
+  };
   const handleNext = () => {
     // setData(true);
+    let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
+    setIndex(index + 1);
+    if (index > storedCities.length - 2) {
+      setIndex(0);
+    }
+    console.log(index);
+    return getInfo(index);
   };
   return (
     <div className="h-screen pb-16 flex flex-row">
