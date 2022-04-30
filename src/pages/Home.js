@@ -74,7 +74,6 @@ export default function Home() {
     if (index === 0) {
       setIndex(storedCities.length - 1);
     }
-    console.log(index);
     return getInfo(index);
   };
   const handleNext = () => {
@@ -84,7 +83,6 @@ export default function Home() {
     if (index > storedCities.length - 2) {
       setIndex(0);
     }
-    console.log(index);
     return getInfo(index);
   };
   return (
