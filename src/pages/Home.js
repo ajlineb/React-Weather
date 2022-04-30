@@ -55,7 +55,7 @@ export default function Home() {
       return;
     }
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
-    console.log(storedCities);
+    //console.log(storedCities);
     setData(storedCities); //will rerender the page if the value has changed with the useEffect down below
     setCurrentDay(storedCities[value].list[0].dt_txt);
     setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
