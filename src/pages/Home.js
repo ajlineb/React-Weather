@@ -68,6 +68,11 @@ export default function Home() {
     getInfo(0);
   }, []);
 
+  useEffect(() => {
+    setCity(Object.keys(localStorage));
+    getInfo(0);
+  }, []);
+
   const handlePrevious = () => {
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
     setIndex(index - 1);
@@ -77,7 +82,6 @@ export default function Home() {
     return getInfo(index);
   };
   const handleNext = () => {
-    // setData(true);
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
     setIndex(index + 1);
     if (index > storedCities.length - 2) {
