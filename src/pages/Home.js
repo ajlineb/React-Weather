@@ -161,8 +161,9 @@ export default function Home() {
     }
   };
 
+  //will be used to update the information for the current city
   const updateInfo = () => {
-    return;
+    return ApiSearchV2.getCityLocation(currentCity);
   };
   return (
     <div className="h-screen pb-16 flex flex-row">
