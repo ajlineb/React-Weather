@@ -37,14 +37,14 @@ export default function Home() {
   const [nnextDay, setNNextDay] = useState("Next Day");
   const [nnextDayWeatherImage, setNNextDayWeatherImage] =
     useState("Animated Image");
-  const [nnextDayWeather, setNNextDayWeatehr] = useState("Expected Weather");
+  const [nnextDayWeather, setNNextDayWeather] = useState("Expected Weather");
   const [nnextDayAvg, setNNextDayAvg] = useState("Temp Avg");
 
   //3 future day States
   const [nnnextDay, setNNNextDay] = useState("Next Day");
   const [nnnextDayWeatherImage, setNNNextDayWeatherImage] =
     useState("Animated Image");
-  const [nnnextDayWeather, setNNNextDayWeatehr] = useState("Expected Weather");
+  const [nnnextDayWeather, setNNNextDayWeather] = useState("Expected Weather");
   const [nnnextDayAvg, setNNNextDayAvg] = useState("Temp Avg");
 
   //loops through local storage to get all cities and their info from previous times
@@ -60,9 +60,18 @@ export default function Home() {
     setCurrentDay(storedCities[value].list[0].dt_txt);
     setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
     setCurrentDayAvg(storedCities[value].list[0].main.temp);
+    //next day states
     setNextDay(storedCities[value].list[0].dt_txt);
     setNextDayWeather(storedCities[value].list[0].weather[0].description);
     setNextDayAvg(storedCities[value].list[0].main.temp);
+    //next next day
+    setNNextDay(storedCities[value].list[0].dt_txt);
+    setNNextDayWeather(storedCities[value].list[0].weather[0].description);
+    setNNextDayAvg(storedCities[value].list[0].main.temp);
+    //next next next day
+    setNNNextDay(storedCities[value].list[0].dt_txt);
+    setNNNextDayWeather(storedCities[value].list[0].weather[0].description);
+    setNNNextDayAvg(storedCities[value].list[0].main.temp);
     return storedCities;
   };
 
