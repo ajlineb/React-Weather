@@ -160,6 +160,10 @@ export default function Home() {
       return "West";
     }
   };
+
+  const updateInfo = () => {
+    return;
+  };
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
@@ -192,6 +196,12 @@ export default function Home() {
                 className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
               >
                 Next
+              </button>
+              <button
+                onClick={updateInfo}
+                className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-green-500 hover:bg-emerald-500 active:bg-emerald-400 focus:outline-none focus:ring focus:ring-emerald-400 shrink h-10"
+              >
+                Update City
               </button>
               <button
                 onClick={deleteCity}
