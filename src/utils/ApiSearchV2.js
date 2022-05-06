@@ -27,8 +27,8 @@ class ApiSearchV2 {
             console.log(cityInfoValues[i].city.name, d.city.name);
             if (cityInfoValues[i].city.name === d.city.name) {
               console.log("deleted!");
-              cityInfoValues.remove(i);
-              return;
+              cityInfoValues.splice(i, 1);
+              //return;
             }
           }
         }

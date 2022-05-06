@@ -25,6 +25,8 @@ export default function Home() {
   const [currentDayWeather, setCurrentDayWeather] =
     useState("Weather that day");
   const [currentDayAvg, setCurrentDayAvg] = useState("Temp Avg");
+  const [currentDayWind, SetCurrentDayWind] = useState("Wind");
+  const [currentCity, setCurrentCity] = useState("City");
 
   //next Day States
   const [nextDay, setNextDay] = useState("Next Day");
@@ -56,10 +58,12 @@ export default function Home() {
     }
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
     //console.log(storedCities);
+    setCurrentCity(storedCities[value].city.name);
     setData(storedCities); //will rerender the page if the value has changed with the useEffect down below
     setCurrentDay(storedCities[value].list[0].dt_txt);
     setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
     setCurrentDayAvg(storedCities[value].list[0].main.temp);
+    SetCurrentDayWind(storedCities[value].list[0].wind); //should return an object of wind values
     //next day states
     setNextDay(storedCities[value].list[8].dt_txt);
     setNextDayWeather(storedCities[value].list[8].weather[0].description);
@@ -101,6 +105,22 @@ export default function Home() {
     }
     return getInfo(index);
   };
+
+  const checkDirection = (deg) => {
+    if (deg === undefined) return;
+    if ((deg >= 0 && deg <= 45) || deg >= 315) {
+      return "North";
+    }
+    if (deg >= 46 && deg <= 135) {
+      return "East";
+    }
+    if (deg >= 136 && deg <= 225) {
+      return "South";
+    }
+    if (deg >= 226 && deg <= 314) {
+      return "West";
+    }
+  };
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
@@ -110,6 +130,7 @@ export default function Home() {
           <div className="text-lg font-bold flex justify-center items-center"></div>
           {/* place the current day info here */}
           <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
+            <div className="pl-8 pt-2">{currentCity}</div>
             <div className="p-8">Todays Date: {currentDay}</div>
             <div className="p-8 h-1/3">{currentDayWeatherImage}</div>
             <div className="p-8">Current Weather: {currentDayWeather}</div>
@@ -168,7 +189,11 @@ export default function Home() {
           </div>
           <div className="h-1/3 bg-indigo-700">
             <div className="p-3 h-1/4">Alt info for the current day</div>
-            <div className="p-3">Wind info</div>
+            <div className="p-3">
+              Wind speed: {currentDayWind.speed} mph, Direction:{" "}
+              {checkDirection(currentDayWind.deg)}ward, Gust:{" "}
+              {currentDayWind.gust} mph
+            </div>
             <div className="p-3">Index info</div>
             <div className="p-3">Extra info about the day maybe holiday?</div>
           </div>
