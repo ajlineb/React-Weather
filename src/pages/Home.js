@@ -51,9 +51,28 @@ export default function Home() {
 
   //loops through local storage to get all cities and their info from previous times
   const getInfo = (value) => {
-    if (localStorage.getItem("CityInfo") === null) {
+    if (
+      localStorage.getItem("CityInfo") === null ||
+      localStorage.getItem("CityInfo") === "[]"
+    ) {
       console.log("none exist!");
+      console.log(localStorage.getItem("CityInfo"));
       setData(false);
+      //reset everything if no data exists in local storage
+      setCurrentCity("City");
+      setCurrentDay("Current Day");
+      setCurrentDayWeather("Current Weather");
+      setCurrentDayAvg("Current Temp");
+      SetCurrentDayWind("Wind info");
+      setNextDay("Next Day");
+      setNextDayWeather("Next Day Weather");
+      setNextDayAvg("Next Day Temp");
+      setNNextDay("Future Day");
+      setNNextDayWeather("Expected Weather");
+      setNNextDayAvg("Expected Temp");
+      setNNNextDay("Future Day");
+      setNNNextDayWeather("Expected Weather");
+      setNNNextDayAvg("Expected Temp");
       return;
     }
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
@@ -95,6 +114,7 @@ export default function Home() {
     if (index === 0) {
       setIndex(storedCities.length - 1);
     }
+    console.log(index);
     return getInfo(index);
   };
   const handleNext = () => {
@@ -103,9 +123,28 @@ export default function Home() {
     if (index > storedCities.length - 2) {
       setIndex(0);
     }
+    console.log(index);
     return getInfo(index);
   };
 
+  const deleteCity = () => {
+    let values = JSON.parse(localStorage.getItem("CityInfo"));
+    if (values.length > 0) {
+      for (let i = 0; i < values.length; i++) {
+        if (values[i].city.name === currentCity) {
+          console.log("deleted!");
+          values.splice(i, 1);
+          values = JSON.stringify(values);
+          localStorage.setItem("CityInfo", values);
+          break;
+        }
+      }
+    }
+    handlePrevious();
+    return;
+  };
+
+  //changes the degrees to a cardinal direction
   const checkDirection = (deg) => {
     if (deg === undefined) return;
     if ((deg >= 0 && deg <= 45) || deg >= 315) {
@@ -153,6 +192,12 @@ export default function Home() {
                 className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
               >
                 Next
+              </button>
+              <button
+                onClick={deleteCity}
+                className="m-2 font-bold px-3 py-2 text-white font-bold rounded-lg bg-rose-700 hover:bg-pink-700 active:bg-pink-400 focus:outline-none focus:ring focus:ring-pink-400 shrink h-10"
+              >
+                Delete Current City
               </button>
             </div>
           </div>

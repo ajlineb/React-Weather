@@ -5,6 +5,7 @@ if (localStorage.getItem("CityInfo")) {
 }
 //will set the array above to contain the values in the localstorage upon return to the page
 
+//IMPORTANT !!! NEED TO CHANGE HOW cityInfoValues is being used becuase it is saving info that is deleted in another place and replacing it after user searches a new city!!!
 class ApiSearchV2 {
   //get users location
   getLocation(data) {
