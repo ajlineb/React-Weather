@@ -106,8 +106,12 @@ export default function Home() {
   const handlePrevious = () => {
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
     setIndex(index - 1);
-    if (index === 0) {
+    if (index === 0 || index < 0) {
       setIndex(storedCities.length - 1);
+      if (index < 0) {
+        setCity("");
+        return;
+      }
     }
     console.log(index);
     getInfo(index);
@@ -160,7 +164,12 @@ export default function Home() {
 
   //will be used to update the information for the current city
   const updateInfo = () => {
-    return ApiSearchV2.getCityLocation(currentCity);
+    console.log(city);
+    console.log(JSON.parse(localStorage.getItem("CityInfo")));
+    if (JSON.parse(localStorage.getItem("CityInfo"))) {
+      return ApiSearchV2.getCityLocation(currentCity);
+    }
+    return;
   };
 
   return (

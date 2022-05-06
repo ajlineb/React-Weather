@@ -5,7 +5,6 @@ if (localStorage.getItem("CityInfo")) {
 }
 //will set the array above to contain the values in the localstorage upon return to the page
 
-//IMPORTANT !!! NEED TO CHANGE HOW cityInfoValues is being used becuase it is saving info that is deleted in another place and replacing it after user searches a new city!!!
 class ApiSearchV2 {
   //get users location
   getLocation(data) {
@@ -21,7 +20,10 @@ class ApiSearchV2 {
       })
       .then((d) => {
         console.log(d);
-
+        cityInfoValues = JSON.parse(localStorage.getItem("CityInfo"));
+        if (cityInfoValues === null) {
+          cityInfoValues = [];
+        }
         //this will check to make sure duplicate data is not in the array
         if (cityInfoValues.length > 0) {
           for (let i = 0; i < cityInfoValues.length; i++) {
@@ -33,7 +35,7 @@ class ApiSearchV2 {
             }
           }
         }
-
+        //will look up the current data in local storage so it doesnt add old info
         cityInfoValues.push(d);
         console.log(cityInfoValues);
 
