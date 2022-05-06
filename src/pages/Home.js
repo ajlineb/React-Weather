@@ -30,7 +30,7 @@ export default function Home() {
   const [nextDay, setNextDay] = useState("Next Day");
   const [nextDayWeatherImage, setNextDayWeatherImage] =
     useState("Animated Image");
-  const [nextDayWeather, setNextDayWeatehr] = useState("Expected Weather");
+  const [nextDayWeather, setNextDayWeather] = useState("Expected Weather");
   const [nextDayAvg, setNextDayAvg] = useState("Temp Avg");
 
   //2 future day States
@@ -60,6 +60,9 @@ export default function Home() {
     setCurrentDay(storedCities[value].list[0].dt_txt);
     setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
     setCurrentDayAvg(storedCities[value].list[0].main.temp);
+    setNextDay(storedCities[value].list[0].dt_txt);
+    setNextDayWeather(storedCities[value].list[0].weather[0].description);
+    setNextDayAvg(storedCities[value].list[0].main.temp);
     return storedCities;
   };
 
