@@ -99,12 +99,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setCity(Object.keys(localStorage));
-    getInfo(0);
-  }, []);
-
-  useEffect(() => {
-    setCity(Object.keys(localStorage));
+    //setCity(Object.keys(localStorage));
     getInfo(0);
   }, []);
 
@@ -115,7 +110,8 @@ export default function Home() {
       setIndex(storedCities.length - 1);
     }
     console.log(index);
-    return getInfo(index);
+    getInfo(index);
+    return;
   };
   const handleNext = () => {
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
@@ -124,7 +120,8 @@ export default function Home() {
       setIndex(0);
     }
     console.log(index);
-    return getInfo(index);
+    getInfo(index);
+    return;
   };
 
   const deleteCity = () => {
@@ -165,6 +162,7 @@ export default function Home() {
   const updateInfo = () => {
     return ApiSearchV2.getCityLocation(currentCity);
   };
+
   return (
     <div className="h-screen pb-16 flex flex-row">
       <Sidetabs />
