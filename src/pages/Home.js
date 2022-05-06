@@ -61,17 +61,17 @@ export default function Home() {
     setCurrentDayWeather(storedCities[value].list[0].weather[0].description);
     setCurrentDayAvg(storedCities[value].list[0].main.temp);
     //next day states
-    setNextDay(storedCities[value].list[0].dt_txt);
-    setNextDayWeather(storedCities[value].list[0].weather[0].description);
-    setNextDayAvg(storedCities[value].list[0].main.temp);
+    setNextDay(storedCities[value].list[8].dt_txt);
+    setNextDayWeather(storedCities[value].list[8].weather[0].description);
+    setNextDayAvg(storedCities[value].list[8].main.temp);
     //next next day
-    setNNextDay(storedCities[value].list[0].dt_txt);
-    setNNextDayWeather(storedCities[value].list[0].weather[0].description);
-    setNNextDayAvg(storedCities[value].list[0].main.temp);
+    setNNextDay(storedCities[value].list[16].dt_txt);
+    setNNextDayWeather(storedCities[value].list[16].weather[0].description);
+    setNNextDayAvg(storedCities[value].list[16].main.temp);
     //next next next day
-    setNNNextDay(storedCities[value].list[0].dt_txt);
-    setNNNextDayWeather(storedCities[value].list[0].weather[0].description);
-    setNNNextDayAvg(storedCities[value].list[0].main.temp);
+    setNNNextDay(storedCities[value].list[24].dt_txt);
+    setNNNextDayWeather(storedCities[value].list[24].weather[0].description);
+    setNNNextDayAvg(storedCities[value].list[24].main.temp);
     return storedCities;
   };
 
@@ -142,19 +142,28 @@ export default function Home() {
               <div className="p-3">{nextDay}</div>
               <div className="p-3 h-1/3">{nextDayWeatherImage}</div>
               <div className="p-3">{nextDayWeather}</div>
-              <div className="p-3">{nextDayAvg}</div>
+              <div className="p-3">
+                Temp: {Math.floor(nextDayAvg - 273)}°C or{" "}
+                {Math.floor(((nextDayAvg - 273) * 9) / 5 + 32)}°F
+              </div>
             </div>
             <div className="bg-violet-700">
               <div className="p-3">{nnextDay}</div>
               <div className="p-3 h-1/3">{nnextDayWeatherImage}</div>
               <div className="p-3">{nnextDayWeather}</div>
-              <div className="p-3">{nnextDayAvg}</div>
+              <div className="p-3">
+                Temp: {Math.floor(nnextDayAvg - 273)}°C or{" "}
+                {Math.floor(((nnextDayAvg - 273) * 9) / 5 + 32)}°F
+              </div>
             </div>
             <div className="pr-2 bg-violet-500">
               <div className="p-3">{nnnextDay}</div>
               <div className="p-3 h-1/3">{nnnextDayWeatherImage}</div>
               <div className="p-3">{nnnextDayWeather}</div>
-              <div className="p-3">{nnnextDayAvg}</div>
+              <div className="p-3">
+                Temp: {Math.floor(nnnextDayAvg - 273)}°C or{" "}
+                {Math.floor(((nnnextDayAvg - 273) * 9) / 5 + 32)}°F
+              </div>
             </div>
           </div>
           <div className="h-1/3 bg-indigo-700">
