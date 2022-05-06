@@ -20,9 +20,9 @@ class ApiSearchV2 {
       })
       .then((d) => {
         console.log(d);
-        cityInfoValues = JSON.parse(localStorage.getItem("CityInfo"));
+        cityInfoValues = JSON.parse(localStorage.getItem("CityInfo")); //will look up the current data in local storage so it doesnt add old info
         if (cityInfoValues === null) {
-          cityInfoValues = [];
+          cityInfoValues = []; //if the local storage has nothing then it will set it to an empty array
         }
         //this will check to make sure duplicate data is not in the array
         if (cityInfoValues.length > 0) {
@@ -35,7 +35,7 @@ class ApiSearchV2 {
             }
           }
         }
-        //will look up the current data in local storage so it doesnt add old info
+
         cityInfoValues.push(d);
         console.log(cityInfoValues);
 
