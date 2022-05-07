@@ -55,8 +55,8 @@ export default function Home() {
       localStorage.getItem("CityInfo") === null ||
       localStorage.getItem("CityInfo") === "[]"
     ) {
-      console.log("none exist!");
-      console.log(localStorage.getItem("CityInfo"));
+      //console.log("none exist!");
+      //console.log(localStorage.getItem("CityInfo"));
       setData(false);
       //reset everything if no data exists in local storage
       setCurrentCity("City");
@@ -105,6 +105,7 @@ export default function Home() {
 
   const handlePrevious = () => {
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
+    if (storedCities === undefined) return;
     setIndex(index - 1);
     if (index === 0 || index < 0) {
       setIndex(storedCities.length - 1);
@@ -113,17 +114,18 @@ export default function Home() {
         return;
       }
     }
-    console.log(index);
+    //console.log(index);
     getInfo(index);
     return;
   };
   const handleNext = () => {
     let storedCities = JSON.parse(localStorage.getItem("CityInfo"));
+    if (storedCities === undefined) return;
     setIndex(index + 1);
     if (index > storedCities.length - 2) {
       setIndex(0);
     }
-    console.log(index);
+    //console.log(index);
     getInfo(index);
     return;
   };
@@ -133,7 +135,7 @@ export default function Home() {
     if (values.length > 0) {
       for (let i = 0; i < values.length; i++) {
         if (values[i].city.name === currentCity) {
-          console.log("deleted!");
+          //console.log("deleted!");
           values.splice(i, 1);
           values = JSON.stringify(values);
           localStorage.setItem("CityInfo", values);
@@ -164,10 +166,12 @@ export default function Home() {
 
   //will be used to update the information for the current city
   const updateInfo = () => {
-    console.log(city);
-    console.log(JSON.parse(localStorage.getItem("CityInfo")));
+    //console.log(city);
+    //console.log(JSON.parse(localStorage.getItem("CityInfo")));
     if (JSON.parse(localStorage.getItem("CityInfo"))) {
-      return ApiSearchV2.getCityLocation(currentCity);
+      ApiSearchV2.getCityLocation(currentCity);
+      getInfo(index);
+      return;
     }
     return;
   };
@@ -191,7 +195,7 @@ export default function Home() {
             </div>
           </div>
           <div className="p-3 flex flex-col justify-center items-center">
-            <div className="font-bold">Change Through Cities</div>
+            <div className="font-bold">City Options</div>
             <div>
               <button
                 onClick={handlePrevious}

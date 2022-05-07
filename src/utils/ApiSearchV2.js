@@ -19,7 +19,7 @@ class ApiSearchV2 {
         return res.json();
       })
       .then((d) => {
-        console.log(d);
+        //console.log(d);
         cityInfoValues = JSON.parse(localStorage.getItem("CityInfo")); //will look up the current data in local storage so it doesnt add old info
         if (cityInfoValues === null) {
           cityInfoValues = []; //if the local storage has nothing then it will set it to an empty array
@@ -27,9 +27,9 @@ class ApiSearchV2 {
         //this will check to make sure duplicate data is not in the array
         if (cityInfoValues.length > 0) {
           for (let i = 0; i < cityInfoValues.length; i++) {
-            console.log(cityInfoValues[i].city.name, d.city.name);
+            //console.log(cityInfoValues[i].city.name, d.city.name);
             if (cityInfoValues[i].city.name === d.city.name) {
-              console.log("deleted!");
+              //console.log("deleted!");
               cityInfoValues.splice(i, 1);
               //return;
             }
@@ -37,7 +37,7 @@ class ApiSearchV2 {
         }
 
         cityInfoValues.push(d);
-        console.log(cityInfoValues);
+        //console.log(cityInfoValues);
 
         localStorage.setItem(`CityInfo`, JSON.stringify(cityInfoValues));
         return d;
@@ -62,7 +62,7 @@ class ApiSearchV2 {
         if (d.length < 1) {
           alert("That was not a valid city");
         }
-        console.log(d[0].lat, d[0].lon);
+        //console.log(d[0].lat, d[0].lon);
         let coords = [d[0].lat, d[0].lon];
 
         this.getLocation(coords);
