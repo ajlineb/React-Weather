@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 
 //import pages
 import Home from "./pages/Home";
+import WeatherMap from "./pages/WeatherMap";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/weather-maps" element={<WeatherMap />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
