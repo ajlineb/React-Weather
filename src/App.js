@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/weather-maps" element={<WeatherMap />} />
+        <Route exact path="/Maps" element={<WeatherMap />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
