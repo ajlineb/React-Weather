@@ -7,9 +7,7 @@ if (localStorage.getItem("CityInfo")) {
 
 class ApiSearchV2 {
   //get users location
-  getLocation(data) {
-    let lat = data[0];
-    let long = data[1];
+  getLocation(lat, long) {
     let apiData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_KEY}`;
     fetch(apiData)
       .then((res) => {
@@ -19,7 +17,7 @@ class ApiSearchV2 {
         return res.json();
       })
       .then((d) => {
-        //console.log(d);
+        console.log(d);
         cityInfoValues = JSON.parse(localStorage.getItem("CityInfo")); //will look up the current data in local storage so it doesnt add old info
         if (cityInfoValues === null) {
           cityInfoValues = []; //if the local storage has nothing then it will set it to an empty array
@@ -40,6 +38,7 @@ class ApiSearchV2 {
         //console.log(cityInfoValues);
 
         localStorage.setItem(`CityInfo`, JSON.stringify(cityInfoValues));
+        console.log(d);
         return d;
       })
       .catch((error) => {
@@ -59,13 +58,11 @@ class ApiSearchV2 {
         return res.json();
       })
       .then((d) => {
-        if (d.length < 1) {
-          alert("That was not a valid city");
-        }
-        //console.log(d[0].lat, d[0].lon);
-        let coords = [d[0].lat, d[0].lon];
-
-        this.getLocation(coords);
+        // if (d.length < 1) {
+        //   alert("That was not a valid city");
+        // }
+        console.log(d);
+        return d[0].lat, d[0].lon;
       });
   }
 
