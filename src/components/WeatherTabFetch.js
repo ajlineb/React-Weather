@@ -68,11 +68,6 @@ export default function WeatherTabFetch() {
               {city.list[0].main.temp_min} Cel | {city.list[0].main.temp_max}Cel
             </h3>
           </div>
-          <div className="wave- one"></div>
-
-          <div className="wave- two"></div>
-
-          <div className="wave- three"></div>
         </div>
       )}
     </div>
