@@ -14,8 +14,6 @@ import WeatherTabFetch from "./components/WeatherTabFetch";
 function App() {
   return (
     <Router basename="/weather_dashboard">
-      <Header />
-      <WeatherTabFetch />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/Maps" element={<WeatherMap />} />
