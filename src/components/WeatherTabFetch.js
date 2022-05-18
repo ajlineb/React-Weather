@@ -4,10 +4,11 @@ import image from "../img/magnify.svg";
 export default function WeatherTabFetch() {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
-
+  
   useEffect(() => {
     const fetchAPI = async () => {
       const url = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${process.env.REACT_APP_API_KEY}`;
+      
       const response = await fetch(url);
       const resJson = await response.json();
       console.log(resJson);
@@ -63,9 +64,9 @@ export default function WeatherTabFetch() {
               <i class="fas fa-street-view"></i>
               {city.city.name}
             </h2>
-            <h1 className="temp">{city.list[0].main.temp}</h1>
+            <h1 className="temp">{Math.floor(city.list[0].main.temp - 273.15)} Celsius currently</h1>
             <h3 className="tempmin_max">
-              {city.list[0].main.temp_min} Cel | {city.list[0].main.temp_max}Cel
+              {Math.floor(city.list[0].main.temp_min -273.15)} Celsius min | {Math.floor(city.list[0].main.temp_max -273.15)} Celsius max
             </h3>
           </div>
         </div>
