@@ -4,15 +4,16 @@ import image from "../img/magnify.svg";
 export default function WeatherTabFetch() {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
-  
+
   useEffect(() => {
+    if (search === "") return;
     const fetchAPI = async () => {
       const url = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${process.env.REACT_APP_API_KEY}`;
-      
+
       const response = await fetch(url);
       const resJson = await response.json();
       console.log(resJson);
-      if (!resJson || resJson[0] === undefined) {
+      if (!resJson || resJson[0] === undefined || resJson.length === 0) {
         setCity(null);
         return;
       }
@@ -26,6 +27,7 @@ export default function WeatherTabFetch() {
     };
     fetchAPI();
   }, [search]);
+
   return (
     <div className="city-search basis-1/3 flex justify-center items-center  ">
       <div className=" w-1/2 shrink relative">
@@ -61,12 +63,15 @@ export default function WeatherTabFetch() {
         <div>
           <div className="info">
             <h2 className="location">
-              <i class="fas fa-street-view"></i>
+              <i className="fas fa-street-view"></i>
               {city.city.name}
             </h2>
-            <h1 className="temp">{Math.floor(city.list[0].main.temp - 273.15)} Celsius currently</h1>
+            <h1 className="temp">
+              {Math.floor(city.list[0].main.temp - 273.15)} Celsius currently
+            </h1>
             <h3 className="tempmin_max">
-              {Math.floor(city.list[0].main.temp_min -273.15)} Celsius min | {Math.floor(city.list[0].main.temp_max -273.15)} Celsius max
+              {Math.floor(city.list[0].main.temp_min - 273.15)} Celsius min |{" "}
+              {Math.floor(city.list[0].main.temp_max - 273.15)} Celsius max
             </h3>
           </div>
         </div>
