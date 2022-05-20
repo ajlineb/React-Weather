@@ -10,8 +10,8 @@ class Header extends React.Component {
   handlCallback = (childData) => {
     this.setState({ data: childData });
   };
-  onTrigger = () => {
-    this.props.parentCallback("welcom to GFG");
+  onTrigger = (data) => {
+    this.props.parentCallback(data);
   };
   render() {
     console.log(this.state);
