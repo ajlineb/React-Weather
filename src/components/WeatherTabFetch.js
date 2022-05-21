@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import image from "../img/magnify.svg";
 
-export default function WeatherTabFetch() {
+export default function WeatherTabFetch({ setSearchResults2 }) {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -15,6 +15,7 @@ export default function WeatherTabFetch() {
       console.log(resJson);
       if (!resJson || resJson[0] === undefined || resJson.length === 0) {
         setCity(null);
+        setSearchResults2(null);
         return;
       }
       const coords = [resJson[0].lat, resJson[0].lon];
@@ -24,7 +25,9 @@ export default function WeatherTabFetch() {
 
       console.log(resJson2);
       setCity(resJson2);
+      setSearchResults2(resJson2);
     };
+
     fetchAPI();
   }, [search]);
 
