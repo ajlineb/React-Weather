@@ -7,7 +7,6 @@ import Sidetabs from "../components/Sidetabs";
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
-  const [data, setData] = useState(null);
 
   if (searchResults) {
     console.log(searchResults.list);
