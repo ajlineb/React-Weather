@@ -43,7 +43,7 @@ export default function Home() {
                   <div className="p-8">Todays Date: {result.dt_txt}</div>
                   <div className="p-8 h-1/3">{result.weather[0].main}</div>
                   <div className="p-8">
-                    Current Weather: {result.weather[0].main}
+                    Current Weather: {result.weather[0].description}
                   </div>
                   <div className="p-8">
                     Temp: {Math.floor(result.main.temp - 273)}°C or{" "}
