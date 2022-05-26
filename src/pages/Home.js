@@ -7,7 +7,7 @@ import Sidetabs from "../components/Sidetabs";
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
 
-  
+  console.log(JSON.stringify(searchResults));
   return (
     <>
       <Header setSearchResults={setSearchResults} />

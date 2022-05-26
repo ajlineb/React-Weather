@@ -19,7 +19,8 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
         return;
       }
       const coords = [resJson[0].lat, resJson[0].lon];
-      const url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${coords[0]}&lon=${coords[1]}&appid=${process.env.REACT_APP_API_KEY}`;
+      const url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords[0]}&lon=${coords[1]}&appid=${process.env.REACT_APP_API_KEY}`;
+      //https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}
       const response2 = await fetch(url2);
       const resJson2 = await response2.json();
 
