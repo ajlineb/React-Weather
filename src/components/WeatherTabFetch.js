@@ -68,14 +68,17 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
           <div className="info">
             <h2 className="location">
               <i className="fas fa-street-view"></i>
-              {city.city.name}
+              {city.timezone}
             </h2>
             <h1 className="temp">
-              {Math.floor(city.list[0].main.temp - 273.15)} Celsius currently
+              {Math.floor(city.daily[0].feels_like.day - 273.15)} Day Temp
+              Celsius
             </h1>
             <h3 className="tempmin_max">
-              {Math.floor(city.list[0].main.temp_min - 273.15)} Celsius min |{" "}
-              {Math.floor(city.list[0].main.temp_max - 273.15)} Celsius max
+              {Math.floor(city.daily[0].feels_like.eve - 273.15)} Evening Temp
+              Celsius |<br />{" "}
+              {Math.floor(city.daily[0].feels_like.night - 273.15)} Night Temp
+              Celsius
             </h3>
           </div>
         </div>
