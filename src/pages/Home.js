@@ -7,11 +7,47 @@ import Sidetabs from "../components/Sidetabs";
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
 
+  //converts the unix time to a readable format
   const convertTime = (unix) => {
     const milliseconds = unix * 1000;
     const dateObject = new Date(milliseconds);
     const dateFriendly = dateObject.toLocaleString();
     return dateFriendly;
+  };
+
+  //changes the degrees to a cardinal direction
+  const checkDirection = (deg) => {
+    if (deg === undefined) return;
+    if ((deg >= 0 && deg <= 45) || deg >= 315) {
+      return "North";
+    }
+    if (deg >= 46 && deg <= 135) {
+      return "East";
+    }
+    if (deg >= 136 && deg <= 225) {
+      return "South";
+    }
+    if (deg >= 226 && deg <= 314) {
+      return "West";
+    }
+  };
+
+  //Changes the text color based on the UV index rating
+  const uvColor = (uv) => {
+    if (uv >= 10) {
+      return "bg-fuchsia-600 font-bold text-slate-100 rounded p-1";
+    }
+    if (uv >= 8) {
+      return "bg-red-700 font-bold text-slate-100 rounded p-1";
+    }
+    if (uv >= 3) {
+      return "bg-amber-500 font-bold text-slate-100 rounded p-1";
+    }
+    if (uv >= 1) {
+      return "bg-green-500 font-bold text-slate-100 rounded p-1";
+    } else {
+      return "bg-blue-500 font-bold text-slate-100 rounded p-1";
+    }
   };
 
   console.log(JSON.stringify(searchResults));
@@ -53,11 +89,23 @@ export default function Home() {
               <div className="bg-slate-400 rounded-lg flex-1 flex-column">
                 <div className="h-1/3 bg-indigo-700">
                   <div className="p-3 h-1/4">Alt info for the current day</div>
-                  <div className="p-3">Wind info</div>
+                  <div className="p-3">
+                    Wind info:{" "}
+                    {checkDirection(result.wind_deg) +
+                      "ward " +
+                      result.wind_gust +
+                      " Gust " +
+                      result.wind_speed +
+                      " Wind Speed "}
+                  </div>
                   <div className="p-3">Index info</div>
                   <div className="p-3">
                     Extra info about the day maybe holiday?
                   </div>
+                  <h2>
+                    UV index:{" "}
+                    <span className={uvColor(result.uvi)}>{result.uvi}</span>
+                  </h2>
                 </div>
               </div>
             </div>
