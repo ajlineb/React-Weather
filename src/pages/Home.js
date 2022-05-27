@@ -7,6 +7,13 @@ import Sidetabs from "../components/Sidetabs";
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
 
+  const convertTime = (unix) => {
+    const milliseconds = unix * 1000;
+    const dateObject = new Date(milliseconds);
+    const dateFriendly = dateObject.toLocaleString();
+    return dateFriendly;
+  };
+
   console.log(JSON.stringify(searchResults));
   return (
     <>
@@ -19,7 +26,7 @@ export default function Home() {
           </h3>
         </div>
       ) : (
-        searchResults.list.map((result, id) => {
+        searchResults.daily.map((result, id) => {
           //this is where the goods is going!!!
           return (
             <div
@@ -30,14 +37,16 @@ export default function Home() {
                 <div className="text-lg font-bold flex justify-center items-center"></div>
                 {/* place the current day info here */}
                 <div className="h-2/3 mt-20 bg-indigo-400 flex-1 flex-column">
-                  <div className="p-8">Todays Date: {result.dt_txt}</div>
+                  <div className="p-8">
+                    Todays Date: {convertTime(result.dt)}
+                  </div>
                   <div className="p-8 h-1/3">{result.weather[0].main}</div>
                   <div className="p-8">
                     Current Weather: {result.weather[0].description}
                   </div>
                   <div className="p-8">
-                    Temp: {Math.floor(result.main.temp - 273)}°C or{" "}
-                    {Math.floor(((result.main.temp - 273) * 9) / 5 + 32)}°F
+                    Temp: {Math.floor(result.temp.day - 273)}°C or{" "}
+                    {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
                   </div>
                 </div>
               </div>
