@@ -50,6 +50,12 @@ export default function Home() {
     }
   };
 
+  //function for determining which animated image will show
+  const handleImage = (weather) => {
+         
+    
+  }
+
   console.log(JSON.stringify(searchResults));
   return (
     <>
@@ -76,9 +82,9 @@ export default function Home() {
                   <div className="p-8">
                     Todays Date: {convertTime(result.dt)}
                   </div>
-                  <div className="p-8 h-1/3">{result.weather[0].main}</div>
+                  <div className="p-8 h-1/3">{result.weather[0].description}</div>
                   <div className="p-8">
-                    Current Weather: {result.weather[0].description}
+                    Current Weather: {result.weather[0].main}
                   </div>
                   <div className="p-8">
                     Temp: {Math.floor(result.temp.day - 273)}°C or{" "}
