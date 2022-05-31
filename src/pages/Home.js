@@ -56,11 +56,12 @@ export default function Home() {
   const handleImage = (weather) => {
     if(!weather) return;
 
-    if (weather === weatherTypes[0]) {
+    if (weather === weatherTypes[0] || weather === weatherTypes[3] || weather === weatherTypes[4]) {
       return (
-        <img src=""></img>
+        <img src={data[0].src} alt={data[0].alt}></img>
       )
     }
+    return <div>{weather}</div>
   }
 
   console.log(JSON.stringify(searchResults));
@@ -89,7 +90,7 @@ export default function Home() {
                   <div className="p-8">
                     Todays Date: {convertTime(result.dt)}
                   </div>
-                  <div className="p-8 h-1/3">{result.weather[0].description}</div>
+                  <div className="p-8 h-1/3">{handleImage(result.weather[0].description)}</div>
                   <div className="p-8">
                     Current Weather: {result.weather[0].main}
                   </div>
