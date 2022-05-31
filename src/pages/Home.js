@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Sidetabs from "../components/Sidetabs";
 
-//import Current_Weather from "../components/Current_Weather";
+//will continue to add more types as I discover the types the API has
+const weatherTypes = ["few clouds", "light rain", "clear sky", "overcast clouds", "broken clouds"]
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
