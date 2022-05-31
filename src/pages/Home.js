@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import data from "../utils/imageBase";
 import Sidetabs from "../components/Sidetabs";
 
 //will continue to add more types as I discover the types the API has
@@ -53,8 +54,13 @@ export default function Home() {
 
   //function for determining which animated image will show
   const handleImage = (weather) => {
-         
-    
+    if(!weather) return;
+
+    if (weather === weatherTypes[0]) {
+      return (
+        <img src=""></img>
+      )
+    }
   }
 
   console.log(JSON.stringify(searchResults));
