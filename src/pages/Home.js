@@ -63,15 +63,40 @@ export default function Home() {
   //function for determining which animated image will show
   const handleImage = (weather) => {
     if (!weather) return;
-
+    //checks if clear skyes
+    if (weather === weatherTypes[2]) {
+      return (
+        <img className="rounded-lg" src={data[9].src} alt={data[9].alt}></img>
+      );
+    }
+    //checks if cloudy
     if (
       weather === weatherTypes[0] ||
       weather === weatherTypes[3] ||
       weather === weatherTypes[4]
     ) {
-      return <img src={data[0].src} alt={data[0].alt}></img>;
+      return (
+        <img className="rounded-lg" src={data[0].src} alt={data[0].alt}></img>
+      );
     }
-    return <div>{weather}</div>;
+    //checks if partly cloudy
+    if (weather === weatherTypes[5]) {
+      return (
+        <img className="rounded-lg" src={data[5].src} alt={data[5].alt}></img>
+      );
+    }
+    //checks if raining
+    if (weather === weatherTypes[1]) {
+      return (
+        <img className="rounded-lg" src={data[1].src} alt={data[1].alt}></img>
+      );
+    }
+    if (weather === weatherTypes[6]) {
+      return (
+        <img className="rounded-lg" src={data[7].src} alt={data[7].alt}></img>
+      );
+    }
+    return <div className="rounded-lg">{weather}</div>;
   };
 
   console.log(JSON.stringify(searchResults));
