@@ -4,7 +4,15 @@ import data from "../utils/imageBase";
 import Sidetabs from "../components/Sidetabs";
 
 //will continue to add more types as I discover the types the API has
-const weatherTypes = ["few clouds", "light rain", "clear sky", "overcast clouds", "broken clouds"]
+const weatherTypes = [
+  "few clouds",
+  "light rain",
+  "clear sky",
+  "overcast clouds",
+  "broken clouds",
+  "scattered clouds",
+  "moderate rain",
+];
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);
@@ -54,15 +62,17 @@ export default function Home() {
 
   //function for determining which animated image will show
   const handleImage = (weather) => {
-    if(!weather) return;
+    if (!weather) return;
 
-    if (weather === weatherTypes[0] || weather === weatherTypes[3] || weather === weatherTypes[4]) {
-      return (
-        <img src={data[0].src} alt={data[0].alt}></img>
-      )
+    if (
+      weather === weatherTypes[0] ||
+      weather === weatherTypes[3] ||
+      weather === weatherTypes[4]
+    ) {
+      return <img src={data[0].src} alt={data[0].alt}></img>;
     }
-    return <div>{weather}</div>
-  }
+    return <div>{weather}</div>;
+  };
 
   console.log(JSON.stringify(searchResults));
   return (
@@ -90,7 +100,9 @@ export default function Home() {
                   <div className="p-8">
                     Todays Date: {convertTime(result.dt)}
                   </div>
-                  <div className="p-8 h-1/3">{handleImage(result.weather[0].description)}</div>
+                  <div className="p-8 h-1/3">
+                    {handleImage(result.weather[0].description)}
+                  </div>
                   <div className="p-8">
                     Current Weather: {result.weather[0].main}
                   </div>
