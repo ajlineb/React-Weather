@@ -98,6 +98,7 @@ export default function Home() {
         <img className="rounded-lg" src={data[10].src} alt={data[10].alt}></img>
       );
     }
+    //checks for monderate showers
     if (weather === weatherTypes[6]) {
       return (
         <img className="rounded-lg" src={data[7].src} alt={data[7].alt}></img>
