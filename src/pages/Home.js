@@ -135,6 +135,7 @@ export default function Home() {
                   </div>
                   <div className="p-8 h-1/3">
                     {handleImage(result.weather[0].description)}
+                    <p>Weather description: {result.weather[0].description}</p>
                   </div>
                   <div className="p-8">
                     Current Weather: {result.weather[0].main}
@@ -157,11 +158,10 @@ export default function Home() {
                       result.wind_speed +
                       " Wind Speed "}
                   </div>
-                  <div className="p-3">Index info</div>
                   <div className="p-3">
                     Extra info about the day maybe holiday?
                   </div>
-                  <h2>
+                  <h2 className="p-3">
                     UV index:{" "}
                     <span className={uvColor(result.uvi)}>{result.uvi}</span>
                   </h2>
