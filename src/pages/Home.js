@@ -12,6 +12,7 @@ const weatherTypes = [
   "broken clouds",
   "scattered clouds",
   "moderate rain",
+  "heavy intensity rain",
 ];
 
 export default function Home() {
@@ -89,6 +90,12 @@ export default function Home() {
     if (weather === weatherTypes[1]) {
       return (
         <img className="rounded-lg" src={data[1].src} alt={data[1].alt}></img>
+      );
+    }
+    //checks if heavy raining
+    if (weather === weatherTypes[7]) {
+      return (
+        <img className="rounded-lg" src={data[10].src} alt={data[10].alt}></img>
       );
     }
     if (weather === weatherTypes[6]) {
