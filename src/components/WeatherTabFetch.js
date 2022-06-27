@@ -42,7 +42,7 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
           alt="magnifier"
         ></img>
         <input
-          className="w-full pl-9 border-2 rounded-l-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
+          className="w-full pl-9 border-2 rounded-md border-slate-700 focus:outline-none focus:border-indigo-700 focus:ring-1 focus:ring-indigo-700 placeholder:italic shrink h-10"
           id="city_search"
           type="search"
           placeholder="Search a City..."
@@ -51,13 +51,13 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
           }}
         ></input>
       </div>
-      <button
+      {/* <button
         className="px-3 py-2 text-white font-bold rounded-r-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
         type="submit"
       >
         Search!
-      </button>
-      {!city || city === undefined ? (
+      </button> */}
+      {/* {!city || city === undefined ? (
         <div>
           <h3>
             <b>No Data Found</b>
@@ -82,7 +82,7 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
             </h3>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
