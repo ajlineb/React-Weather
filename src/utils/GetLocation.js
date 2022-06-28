@@ -1,14 +1,19 @@
 //this will be used to get the users location
 //It will either send the info needed or it will send a false response
 //if false the user will need to type in a city for location info
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ApiSearchV2 from "./ApiSearchV2";
 
-export default function GetLocation() {
+export default function GetLocation({ setGetLocation }) {
   const [lat, setLat] = useState(null);
   const [del, setDel] = useState(null);
   const [long, setLong] = useState(null);
   const [status, setStatus] = useState(null);
+  const [coords, setCoords] = useState(null);
+
+  useEffect(() => {
+    setGetLocation(coords);
+  }, [coords]);
 
   const getLocation = () => {
     if (!navigator.geolocation) {
@@ -21,6 +26,7 @@ export default function GetLocation() {
           setDel("Delete");
           setLat(position.coords.latitude);
           setLong(position.coords.longitude);
+          setCoords([position.coords.latitude, position.coords.longitude]);
           const array = [position.coords.latitude, position.coords.longitude];
           ApiSearchV2.getLocation(array);
         },
@@ -28,6 +34,7 @@ export default function GetLocation() {
           setStatus("Unable to get location.");
           setLat(null);
           setLong(null);
+          setCoords(null);
         }
       );
     }
@@ -58,6 +65,12 @@ export default function GetLocation() {
       {long && (
         <p className="p-2">
           Longitude: <span className="font-bold text-teal-300">{long}</span>
+        </p>
+      )}
+      {coords && (
+        <p className="p-2">
+          Coords:{" "}
+          <span className="text-slate-900">{`${coords[0]} lat and ${coords[1]} long`}</span>
         </p>
       )}
       {del && (
