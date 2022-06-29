@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import image from "../img/magnify.svg";
 
-export default function WeatherTabFetch({ setSearchResults2 }, location) {
+//need to figure out how to pass multiple data
+export default function WeatherTabFetch({ setSearchResults2 }) {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
+  const [coLocation, setCoLocation] = useState("");
 
   useEffect(() => {
     if (search === "") return;
@@ -33,21 +35,23 @@ export default function WeatherTabFetch({ setSearchResults2 }, location) {
   }, [search]);
 
   //working on how the getlocation will send weather info
-  useEffect(() => {
-    const fetchAPI = async () => {
-      console.log(location[0], location[1]);
-      if (location[0] === undefined || location[1] === undefined) return;
-      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${location[0]}&lon=${location[1]}&appid=${process.env.REACT_APP_API_KEY}`;
-      const response2 = await fetch(url);
-      const resJson = await response2.json();
+  //console.log(props.location);
+  // useEffect(() => {
+  //   setCoLocation(props.location);
+  //   const fetchAPI = async () => {
+  //     console.log(coLocation[0], coLocation[1]);
+  //     if (coLocation[0] === undefined || coLocation[1] === undefined) return;
+  //     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coLocation[0]}&lon=${coLocation[1]}&appid=${process.env.REACT_APP_API_KEY}`;
+  //     const response2 = await fetch(url);
+  //     const resJson = await response2.json();
 
-      console.log(resJson);
-      setCity(resJson);
-      setSearchResults2(resJson);
-    };
+  //     console.log(resJson);
+  //     setCity(resJson);
+  //     setSearchResults2(resJson);
+  //   };
 
-    fetchAPI();
-  }, [location]);
+  //   fetchAPI();
+  // }, [coLocation]);
 
   return (
     <div className="city-search basis-1/3 flex justify-center items-center  ">
