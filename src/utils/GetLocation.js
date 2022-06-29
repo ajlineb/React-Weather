@@ -45,6 +45,7 @@ export default function GetLocation({ setGetLocation }) {
     setLong(null);
     setDel(null);
     setStatus(null);
+    setCoords(null);
   };
 
   return (
