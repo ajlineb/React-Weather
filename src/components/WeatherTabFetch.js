@@ -35,6 +35,8 @@ export default function WeatherTabFetch({ setSearchResults2 }, location) {
   //working on how the getlocation will send weather info
   useEffect(() => {
     const fetchAPI = async () => {
+      console.log(location[0], location[1]);
+      if (location[0] === undefined || location[1] === undefined) return;
       const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${location[0]}&lon=${location[1]}&appid=${process.env.REACT_APP_API_KEY}`;
       const response2 = await fetch(url);
       const resJson = await response2.json();
@@ -43,6 +45,8 @@ export default function WeatherTabFetch({ setSearchResults2 }, location) {
       setCity(resJson);
       setSearchResults2(resJson);
     };
+
+    fetchAPI();
   }, [location]);
 
   return (
