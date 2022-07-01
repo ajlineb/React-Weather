@@ -10,7 +10,7 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
   useEffect(() => {
     if (search === "") return;
     const fetchAPI = async () => {
-      const url = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${process.env.REACT_APP_API_KEY}`;
+      const url = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${process.env.REACT_APP_API_KEY}`;
 
       const response = await fetch(url);
       const resJson = await response.json();
