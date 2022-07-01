@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/weather_dashboard/static/css/main.52191a09.css",
+    "main.js": "/weather_dashboard/static/js/main.586fbb94.js",
+    "static/js/787.d9312eb8.chunk.js": "/weather_dashboard/static/js/787.d9312eb8.chunk.js",
+    "static/media/mix_rain_snow.gif": "/weather_dashboard/static/media/mix_rain_snow.5b13ae20d2389effa112.gif",
+    "static/media/showers.gif": "/weather_dashboard/static/media/showers.85a7bd0ac3be2c4550fc.gif",
+    "static/media/thunder_showers.gif": "/weather_dashboard/static/media/thunder_showers.dc3292af6b0f5b4665ba.gif",
+    "static/media/light_showers.gif": "/weather_dashboard/static/media/light_showers.f53ec4d1cfe439bcadf0.gif",
+    "static/media/snow.gif": "/weather_dashboard/static/media/snow.50d9a81768c25c3e20a4.gif",
+    "static/media/partly_sunny_showers.gif": "/weather_dashboard/static/media/partly_sunny_showers.894d07874ec1594184d3.gif",
+    "static/media/thunderStorms.gif": "/weather_dashboard/static/media/thunderStorms.dc5f055b69fc5b1e84e3.gif",
+    "static/media/partly_cloudy_storm.gif": "/weather_dashboard/static/media/partly_cloudy_storm.a15cc9b838089bf9af0c.gif",
+    "static/media/cloudy.gif": "/weather_dashboard/static/media/cloudy.d0bdb9d3c53cdeb1f6a8.gif",
+    "static/media/partly_cloudy_chance_of_storms.gif": "/weather_dashboard/static/media/partly_cloudy_chance_of_storms.54d52f158ff65e56a35e.gif",
+    "static/media/partly_cloudy.gif": "/weather_dashboard/static/media/partly_cloudy.65474acd7a07afa3c3e0.gif",
+    "static/media/sunny.gif": "/weather_dashboard/static/media/sunny.bbff88c5ca0056c04bb3.gif",
+    "static/media/magnify.svg": "/weather_dashboard/static/media/magnify.da3fa1114c1ca136a8b875bead7c0b57.svg",
+    "index.html": "/weather_dashboard/index.html",
+    "main.52191a09.css.map": "/weather_dashboard/static/css/main.52191a09.css.map",
+    "main.586fbb94.js.map": "/weather_dashboard/static/js/main.586fbb94.js.map",
+    "787.d9312eb8.chunk.js.map": "/weather_dashboard/static/js/787.d9312eb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52191a09.css",
+    "static/js/main.586fbb94.js"
+  ]
+}
