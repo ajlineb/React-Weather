@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import data from "../utils/imageBase";
 import Sidetabs from "../components/Sidetabs";
+import WeatherTabFetch from "../components/WeatherTabFetch";
 
 //will continue to add more types as I discover the types the API has
 const weatherTypes = [
@@ -161,9 +162,9 @@ export default function Home() {
                           result.wind_speed +
                           " Wind Speed "}
                       </div>
-                      <div className="p-3">
+                      {/* <div className="p-3">
                         Extra info about the day maybe holiday?
-                      </div>
+                      </div> */}
                       <h2 className="p-3">
                         UV index:{" "}
                         <span className={uvColor(result.uvi)}>
