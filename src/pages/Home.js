@@ -122,33 +122,30 @@ export default function Home() {
           searchResults.daily.map((result, id) => {
             //this is where the goods is going!!!
             return (
-              <div
-                key={id}
-                className="flex-1 grid grid-col-2 grid-flow-col bg-slate-300"
-              >
-                <div className="bg-slate-400 rounded-lg mb-16 flex-1 flex-column">
+              <div key={id} className="flex-1 grid grid-col-2 grid-flow-col">
+                <div className="rounded-lg mb-16 flex-1 flex-column">
                   <div className="text-lg font-bold flex justify-center items-center"></div>
                   {/* place the current day info here */}
-                  <div className="h-2/3 bg-indigo-400 flex-1 flex-column">
-                    <div className="p-8">
+                  <div className="h-2/3 bg-indigo-400 rounded-t-lg flex-1 flex-column">
+                    <div className="p-5">
                       Todays Date: {convertTime(result.dt)}
                     </div>
-                    <div className="p-8 h-1/3">
+                    <div className="p-5 h-1/3">
                       {handleImage(result.weather[0].description)}
                       <p>
                         Weather description: {result.weather[0].description}
                       </p>
                     </div>
-                    <div className="p-8">
+                    <div className="p-5">
                       Current Weather: {result.weather[0].main}
                     </div>
-                    <div className="p-8">
+                    <div className="p-5">
                       Temp: {Math.floor(result.temp.day - 273)}°C or{" "}
                       {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
                     </div>
                   </div>
-                  <div className="bg-slate-400 rounded-lg flex-1 flex-column">
-                    <div className="h-1/3 bg-indigo-700">
+                  <div className="flex-1 flex-column">
+                    <div className="h-1/3 bg-indigo-700 rounded-b-lg">
                       <div className="p-3 h-1/4">
                         Alt info for the current day
                       </div>
