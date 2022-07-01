@@ -16,7 +16,7 @@ export default function Header({ setSearchResults }) {
   return (
     <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="w-28 bg-slate-900">
-        <a href="/weather_dashboard">
+        <a href="/React-Weather">
           <img src="https://picsum.photos/150" alt="site logo"></img>
         </a>
       </div>
