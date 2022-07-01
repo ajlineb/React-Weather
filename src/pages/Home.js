@@ -111,11 +111,14 @@ export default function Home() {
   return (
     <>
       <Header setSearchResults={setSearchResults} />
-      <div className="grid grid-col-7 grid-flow-col p-2 gap-4 bg-green-200">
+      <div className="grid grid-col-7 grid-flow-col p-2 gap-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         {!searchResults || searchResults === undefined ? (
-          <div>
-            <h3>
-              <b>No Data Found</b>
+          <div className="flex justify-center items-center h-screen ">
+            <h3 className="h-2/3 text-3xl text-slate-100 font-mono font-black">
+              <b>
+                Start typing into the search bar to see your city/location
+                weather!
+              </b>
             </h3>
           </div>
         ) : (
