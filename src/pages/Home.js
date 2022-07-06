@@ -145,31 +145,37 @@ export default function Home() {
                       Current Weather: {result.weather[0].main}
                     </div>
                     <div className="p-5">
-                      Temp: {Math.floor(result.temp.day - 273)}°C or{" "}
+                      <span className="font-black">Temp:</span>{" "}
+                      {Math.floor(result.temp.day - 273)}°C or{" "}
                       {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
                     </div>
                   </div>
                   <div className="">
-                    <div className="h-1/3 bg-indigo-700 rounded-b-lg">
-                      <div className="p-3 h-1/4 font-black">Information</div>
-                      <div className="p-3">
-                        <span className="font-black">Wind:</span>{" "}
-                        {checkDirection(result.wind_deg) +
-                          "ward " +
-                          result.wind_gust +
-                          " Gust " +
-                          result.wind_speed +
-                          " Wind Speed "}
-                      </div>
-                      {/* <div className="p-3">
+                    <div className="h-1/3 bg-indigo-700 rounded-b-lg grid grid-cols-2 gap-2">
+                      <div>
+                        <div className="p-5 h-1/4 font-black">Information</div>
+                        <div className="p-5">
+                          <span className="font-black">Wind:</span>{" "}
+                          {checkDirection(result.wind_deg) +
+                            "ward " +
+                            result.wind_gust +
+                            " Gust " +
+                            result.wind_speed +
+                            " Wind Speed "}
+                        </div>
+                        {/* <div className="p-3">
                         Extra info about the day maybe holiday?
                       </div> */}
-                      <h2 className="p-3">
-                        UV index:{" "}
-                        <span className={uvColor(result.uvi)}>
-                          {result.uvi}
-                        </span>
-                      </h2>
+                        <h2 className="p-5">
+                          <span className="font-black">UV index:</span>{" "}
+                          <span className={uvColor(result.uvi)}>
+                            {result.uvi}
+                          </span>
+                        </h2>
+                      </div>
+                      <div>
+                        <div className="p-5">sun info</div>
+                      </div>
                     </div>
                   </div>
                 </div>
