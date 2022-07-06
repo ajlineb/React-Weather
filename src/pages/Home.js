@@ -28,6 +28,12 @@ export default function Home() {
     return dateFriendly;
   };
 
+  const removeDate = (date) => {
+    if (!data || undefined) return;
+    console.log(date);
+    return date.split(" ")[1] + " " + date.split(" ")[2];
+  };
+
   //changes the degrees to a cardinal direction
   const checkDirection = (deg) => {
     if (deg === undefined) return;
@@ -174,7 +180,17 @@ export default function Home() {
                         </h2>
                       </div>
                       <div>
-                        <div className="p-5">sun info</div>
+                        <div className="p-5"></div>
+                        <div className="p-5">
+                          <span className="font-bold">Sunrise:</span>
+                          <br />
+                          {removeDate(convertTime(result.sunrise))}
+                        </div>
+                        <div className="p-5">
+                          <span className="font-bold">Sunset:</span>
+                          <br />
+                          {removeDate(convertTime(result.sunset))}
+                        </div>
                       </div>
                     </div>
                   </div>
