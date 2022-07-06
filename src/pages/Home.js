@@ -14,6 +14,7 @@ const weatherTypes = [
   "scattered clouds",
   "moderate rain",
   "heavy intensity rain",
+  "very heavy rain",
 ];
 
 export default function Home() {
@@ -94,7 +95,7 @@ export default function Home() {
       );
     }
     //checks if heavy raining
-    if (weather === weatherTypes[7]) {
+    if (weather === weatherTypes[7] || weather === weatherTypes[8]) {
       return (
         <img className="rounded-lg" src={data[10].src} alt={data[10].alt}></img>
       );
@@ -112,7 +113,7 @@ export default function Home() {
   return (
     <>
       <Header setSearchResults={setSearchResults} />
-      <div className="grid grid-col-7 grid-flow-col p-2 gap-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="flex flex-wrap justify-around p-2 gap-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         {!searchResults || searchResults === undefined ? (
           <div className="flex justify-center items-center h-screen ">
             <h3 className="h-2/3 text-3xl text-slate-100 font-mono font-black">
@@ -126,11 +127,11 @@ export default function Home() {
           searchResults.daily.map((result, id) => {
             //this is where the goods is going!!!
             return (
-              <div key={id} className="flex-1 grid grid-col-2 grid-flow-col">
-                <div className="rounded-lg mb-16 flex-1 flex-column">
-                  <div className="text-lg font-bold flex justify-center items-center"></div>
+              <div key={id} className="basis-1/5">
+                <div className="rounded-lg mb-16 ">
+                  <div className="text-lg font-bold "></div>
                   {/* place the current day info here */}
-                  <div className="h-2/3 bg-indigo-400 rounded-t-lg flex-1 flex-column">
+                  <div className="h-2/3 bg-indigo-400 rounded-t-lg ">
                     <div className="p-5">
                       Todays Date: {convertTime(result.dt)}
                     </div>
@@ -148,13 +149,11 @@ export default function Home() {
                       {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
                     </div>
                   </div>
-                  <div className="flex-1 flex-column">
+                  <div className="">
                     <div className="h-1/3 bg-indigo-700 rounded-b-lg">
-                      <div className="p-3 h-1/4">
-                        Alt info for the current day
-                      </div>
+                      <div className="p-3 h-1/4 font-black">Information</div>
                       <div className="p-3">
-                        Wind info:{" "}
+                        <span className="font-black">Wind:</span>{" "}
                         {checkDirection(result.wind_deg) +
                           "ward " +
                           result.wind_gust +
