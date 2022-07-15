@@ -14,7 +14,7 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
 
       const response = await fetch(url);
       const resJson = await response.json();
-      console.log(resJson);
+      //console.log(resJson);
       if (!resJson || resJson[0] === undefined || resJson.length === 0) {
         setCity(null);
         setSearchResults2(null);
@@ -26,7 +26,7 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
       const response2 = await fetch(url2);
       const resJson2 = await response2.json();
 
-      console.log(resJson2);
+      //console.log(resJson2);
       setCity(resJson2);
       setSearchResults2(resJson2);
     };
@@ -34,23 +34,23 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
     fetchAPI();
   }, [search]);
 
-  //working on how the getlocation will send weather info
-  //console.log(props.location);
   useEffect(() => {
     setCoLocation(searchResults3);
-    console.log(searchResults3, "from tab fetch");
+    //console.log(searchResults3, "from tab fetch");
   }, [searchResults3]);
-  console.log(searchResults3[0], searchResults3[1]);
+
   useEffect(() => {
-    console.log(searchResults3);
+    if (searchResults3 === null) return;
     const fetchAPI = async () => {
-      console.log(coLocation[0], coLocation[1]);
-      if (coLocation[0] === undefined || coLocation[1] === undefined) return;
-      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coLocation[0]}&lon=${coLocation[1]}&appid=${process.env.REACT_APP_API_KEY}`;
+      //console.log(searchResults3[0], searchResults3[1]);
+      if (searchResults3[0] === undefined || searchResults3[1] === undefined)
+        return;
+
+      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${searchResults3[0]}&lon=${searchResults3[1]}&appid=${process.env.REACT_APP_API_KEY}`;
       const response2 = await fetch(url);
       const resJson = await response2.json();
 
-      console.log(resJson);
+      //console.log(resJson);
       setCity(resJson);
       setSearchResults2(resJson);
     };

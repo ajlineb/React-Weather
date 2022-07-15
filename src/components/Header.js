@@ -19,8 +19,8 @@ export default function Header({ setSearchResults }) {
     setGetLocation(searchResults3);
   }, [searchResults3]);
 
-  console.log(searchResults3, "this is the data");
-  console.log(searchResults2, "city search data");
+  // console.log(searchResults3, "this is the data");
+  // console.log(searchResults2, "city search data");
   return (
     <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="w-28 bg-slate-900">

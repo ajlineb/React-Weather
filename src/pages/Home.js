@@ -30,7 +30,7 @@ export default function Home() {
 
   const removeDate = (date) => {
     if (!data || undefined) return;
-    console.log(date);
+    //console.log(date);
     return date.split(" ")[1] + " " + date.split(" ")[2];
   };
 
@@ -115,7 +115,7 @@ export default function Home() {
     return <div className="rounded-lg">{weather}</div>;
   };
 
-  console.log(JSON.stringify(searchResults));
+  //console.log(JSON.stringify(searchResults));
   return (
     <>
       <Header setSearchResults={setSearchResults} />
