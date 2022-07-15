@@ -141,92 +141,99 @@ export default function Home() {
 
   //console.log(JSON.stringify(searchResults));
   return (
-    <>
+    <div className="basis-3/4 grow">
       <Header setSearchResults={setSearchResults} />
-      <div className="flex flex-wrap justify-around p-2 gap-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-        {!searchResults || searchResults === undefined ? (
-          <div className="flex justify-center items-center h-screen ">
-            <h3 className="h-2/3 text-3xl text-slate-100 font-mono font-black">
-              <b>
-                Start typing into the search bar to see your city/location
-                weather!
-              </b>
-            </h3>
-          </div>
-        ) : (
-          searchResults.daily.map((result, id) => {
-            //this is where the goods is going!!!
-            return (
-              <div key={id} className="basis-1/5">
-                <div className="rounded-lg mb-16 ">
-                  <div className="text-lg font-bold "></div>
-                  {/* place the current day info here */}
-                  <div className="h-2/3 bg-indigo-400 rounded-t-lg ">
-                    <div className="p-5">
-                      <span className="font-bold">Date:</span>{" "}
-                      {convertTime(result.dt).split(",")[0]}
+      <div className=" flex flex-row">
+        {/* <Sidetabs className="basis-1/4" /> */}
+        <div className="basis-3/4 flex grow flex-wrap justify-around p-2 gap-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          {!searchResults || searchResults === undefined ? (
+            <div className="flex justify-center items-center h-screen ">
+              <h3 className="h-2/3 text-3xl text-slate-100 font-mono font-black">
+                <b>
+                  Start typing into the search bar to see your city/location
+                  weather!
+                </b>
+              </h3>
+            </div>
+          ) : (
+            searchResults.daily.map((result, id) => {
+              //this is where the goods is going!!!
+              return (
+                <div key={id} className="basis-1/5">
+                  <div className="rounded-lg mb-16 ">
+                    <div className="text-lg font-bold "></div>
+                    {/* place the current day info here */}
+                    <div className="h-2/3 bg-indigo-400 rounded-t-lg ">
+                      <div className="p-5">
+                        <span className="font-bold">Date:</span>{" "}
+                        {convertTime(result.dt).split(",")[0]}
+                      </div>
+                      <div className="p-5 h-1/3">
+                        {handleImage(result.weather[0].description)}
+                        <p>
+                          <span className="font-bold">
+                            Weather description:
+                          </span>{" "}
+                          {result.weather[0].description}
+                        </p>
+                      </div>
+                      <div className="p-5">
+                        <span className="font-bold">Current Weather:</span>{" "}
+                        {result.weather[0].main}
+                      </div>
+                      <div className="p-5">
+                        <span className="font-black">Temp:</span>{" "}
+                        {Math.floor(result.temp.day - 273)}°C or{" "}
+                        {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
+                      </div>
                     </div>
-                    <div className="p-5 h-1/3">
-                      {handleImage(result.weather[0].description)}
-                      <p>
-                        <span className="font-bold">Weather description:</span>{" "}
-                        {result.weather[0].description}
-                      </p>
-                    </div>
-                    <div className="p-5">
-                      <span className="font-bold">Current Weather:</span>{" "}
-                      {result.weather[0].main}
-                    </div>
-                    <div className="p-5">
-                      <span className="font-black">Temp:</span>{" "}
-                      {Math.floor(result.temp.day - 273)}°C or{" "}
-                      {Math.floor(((result.temp.day - 273) * 9) / 5 + 32)}°F
-                    </div>
-                  </div>
-                  <div className="">
-                    <div className="h-1/3 bg-indigo-700 rounded-b-lg grid grid-cols-2 gap-2">
-                      <div>
-                        <div className="p-5 h-1/4 font-black">Information</div>
-                        <div className="p-5">
-                          <span className="font-black">Wind:</span>{" "}
-                          {checkDirection(result.wind_deg) +
-                            "ward " +
-                            result.wind_gust +
-                            " Gust " +
-                            result.wind_speed +
-                            " Wind Speed "}
-                        </div>
-                        {/* <div className="p-3">
+                    <div className="">
+                      <div className="h-1/3 bg-indigo-700 rounded-b-lg grid grid-cols-2 gap-2">
+                        <div>
+                          <div className="p-5 h-1/4 font-black">
+                            Information
+                          </div>
+                          <div className="p-5">
+                            <span className="font-black">Wind:</span>{" "}
+                            {checkDirection(result.wind_deg) +
+                              "ward " +
+                              result.wind_gust +
+                              " Gust " +
+                              result.wind_speed +
+                              " Wind Speed "}
+                          </div>
+                          {/* <div className="p-3">
                         Extra info about the day maybe holiday?
                       </div> */}
-                        <h2 className="p-5">
-                          <span className="font-black">UV index:</span>{" "}
-                          <span className={uvColor(result.uvi)}>
-                            {result.uvi}
-                          </span>
-                        </h2>
-                      </div>
-                      <div>
-                        <div className="p-5"></div>
-                        <div className="p-5">
-                          <span className="font-bold">Sunrise:</span>
-                          <br />
-                          {removeDate(convertTime(result.sunrise))}
+                          <h2 className="p-5">
+                            <span className="font-black">UV index:</span>{" "}
+                            <span className={uvColor(result.uvi)}>
+                              {result.uvi}
+                            </span>
+                          </h2>
                         </div>
-                        <div className="p-5">
-                          <span className="font-bold">Sunset:</span>
-                          <br />
-                          {removeDate(convertTime(result.sunset))}
+                        <div>
+                          <div className="p-5"></div>
+                          <div className="p-5">
+                            <span className="font-bold">Sunrise:</span>
+                            <br />
+                            {removeDate(convertTime(result.sunrise))}
+                          </div>
+                          <div className="p-5">
+                            <span className="font-bold">Sunset:</span>
+                            <br />
+                            {removeDate(convertTime(result.sunset))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
-        )}
+              );
+            })
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

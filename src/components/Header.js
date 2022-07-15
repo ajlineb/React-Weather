@@ -10,7 +10,6 @@ export default function Header({ setSearchResults }) {
   const [searchResults2, setSearchResults2] = useState("");
   const [searchResults3, setSearchResults3] = useState("");
   const [getLocation, setGetLocation] = useState("");
-  const [s2, setS2] = useState("");
   useEffect(() => {
     setSearchResults(searchResults2);
   }, [searchResults2]);
@@ -19,8 +18,10 @@ export default function Header({ setSearchResults }) {
     setGetLocation(searchResults3);
   }, [searchResults3]);
 
-  // console.log(searchResults3, "this is the data");
-  // console.log(searchResults2, "city search data");
+  // console.log(searchResults3, "this is the data"); Used for checking the proper data is being passed through the Get location component
+
+  // console.log(searchResults2, "city search data");  used for checking the proper data is being passed through from typing in a city/location
+
   return (
     <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="w-28 bg-slate-900">
