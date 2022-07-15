@@ -19,39 +19,53 @@ export default function Sidetabs() {
     }
   };
 
+  const handleSticky = (indexNumber) => {
+    if (indexNumber === 1) {
+      return "10";
+    } else return "0";
+  };
+
   const path = window.location.href.split("/");
   console.log(path[4]);
   return (
-    <div className="flex flex-col p-3 gap-20 flex-initial shadow-lg bg-slate-800 w-28 pt-10 ">
-      {tabs.map((tab) => {
-        return (
-          <Link
-            to={tab}
-            key={tab.id}
-            active={active === tab}
-            onClick={() => {
-              setActive(tab);
-            }}
-            className={
-              path[4] === tab
-                ? "h-20 bg-gradient-to-l from-red-500 via-purple-500 rounded-md flex justify-center items-center text-slate-100 font-bold"
-                : "h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center"
-            }
-          >
-            {handleTab(tab)}
-          </Link>
-        );
-      })}
-      <a href="https://www.linkedin.com/in/anthjlin/">
-        <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
-          Linkdin
+    <div className="flex flex-col p-3 gap-20 flex-initial shadow-lg bg-slate-800 w-28">
+      <div className="sticky top-0">
+        {tabs.map((tab) => {
+          return (
+            <div className="pb-3 pt-3">
+              <Link
+                to={tab}
+                key={tab.id}
+                active={active === tab}
+                onClick={() => {
+                  setActive(tab);
+                }}
+                className={
+                  path[4] === tab
+                    ? `h-20 bg-gradient-to-l from-red-500 via-purple-500 rounded-md flex justify-center items-center text-slate-100 font-bold `
+                    : `h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center `
+                }
+              >
+                {handleTab(tab)}
+              </Link>
+            </div>
+          );
+        })}
+        <div className="pb-6 pt-3">
+          <a href="https://www.linkedin.com/in/anthjlin/">
+            <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
+              Linkdin
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="https://github.com/ajlineb">
-        <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
-          Github
+        <div className="pb-6">
+          <a href="https://github.com/ajlineb">
+            <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
+              Github
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   );
 }

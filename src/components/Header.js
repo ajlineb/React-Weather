@@ -23,12 +23,12 @@ export default function Header({ setSearchResults }) {
   // console.log(searchResults2, "city search data");  used for checking the proper data is being passed through from typing in a city/location
 
   return (
-    <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <div className="w-28 bg-slate-900">
+    <div className="flex flex-row flex-initial shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-20">
+      {/* <div className="w-28 bg-slate-900">
         <a href="/React-Weather">
           <img src="https://picsum.photos/150" alt="site logo"></img>
         </a>
-      </div>
+      </div> */}
       <WeatherTabFetch
         setSearchResults2={setSearchResults2}
         searchResults3={searchResults3}

@@ -16,7 +16,7 @@ function App() {
   return (
     <Router basename="/React-Weather">
       <div className="flex flex-row">
-        <Sidetabs className="basis-1/4" />
+        <Sidetabs className="" />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Maps" element={<WeatherMap />} />
