@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import image from "../img/magnify.svg";
 
-//need to figure out how to pass multiple data
-export default function WeatherTabFetch({ setSearchResults2 }) {
+//to pass multiple data wether sending or retriveing make sure to put them all in brackets! like down below
+export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
   const [coLocation, setCoLocation] = useState("");
@@ -36,22 +36,27 @@ export default function WeatherTabFetch({ setSearchResults2 }) {
 
   //working on how the getlocation will send weather info
   //console.log(props.location);
-  // useEffect(() => {
-  //   setCoLocation(props.location);
-  //   const fetchAPI = async () => {
-  //     console.log(coLocation[0], coLocation[1]);
-  //     if (coLocation[0] === undefined || coLocation[1] === undefined) return;
-  //     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coLocation[0]}&lon=${coLocation[1]}&appid=${process.env.REACT_APP_API_KEY}`;
-  //     const response2 = await fetch(url);
-  //     const resJson = await response2.json();
+  useEffect(() => {
+    setCoLocation(searchResults3);
+    console.log(searchResults3, "from tab fetch");
+  }, [searchResults3]);
+  console.log(searchResults3[0], searchResults3[1]);
+  useEffect(() => {
+    console.log(searchResults3);
+    const fetchAPI = async () => {
+      console.log(coLocation[0], coLocation[1]);
+      if (coLocation[0] === undefined || coLocation[1] === undefined) return;
+      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coLocation[0]}&lon=${coLocation[1]}&appid=${process.env.REACT_APP_API_KEY}`;
+      const response2 = await fetch(url);
+      const resJson = await response2.json();
 
-  //     console.log(resJson);
-  //     setCity(resJson);
-  //     setSearchResults2(resJson);
-  //   };
+      console.log(resJson);
+      setCity(resJson);
+      setSearchResults2(resJson);
+    };
 
-  //   fetchAPI();
-  // }, [coLocation]);
+    fetchAPI();
+  }, [searchResults3]);
 
   return (
     <div className="city-search basis-1/3 flex justify-center items-center">

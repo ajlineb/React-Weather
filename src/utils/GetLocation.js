@@ -4,16 +4,17 @@
 import React, { useEffect, useState } from "react";
 import ApiSearchV2 from "./ApiSearchV2";
 
-export default function GetLocation({ setGetLocation }) {
+export default function GetLocation({ setSearchResults3 }) {
   const [lat, setLat] = useState(null);
   const [del, setDel] = useState(null);
   const [long, setLong] = useState(null);
   const [status, setStatus] = useState(null);
   const [coords, setCoords] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    setGetLocation(coords);
-  }, [coords]);
+    setSearchResults3(data);
+  }, [data]);
 
   const getLocation = () => {
     if (!navigator.geolocation) {
@@ -28,13 +29,14 @@ export default function GetLocation({ setGetLocation }) {
           setLong(position.coords.longitude);
           setCoords([position.coords.latitude, position.coords.longitude]);
           const array = [position.coords.latitude, position.coords.longitude];
-          ApiSearchV2.getLocation(array);
+          setData(array);
         },
         () => {
           setStatus("Unable to get location.");
           setLat(null);
           setLong(null);
           setCoords(null);
+          setData(null);
         }
       );
     }

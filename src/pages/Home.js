@@ -139,16 +139,19 @@ export default function Home() {
                   {/* place the current day info here */}
                   <div className="h-2/3 bg-indigo-400 rounded-t-lg ">
                     <div className="p-5">
-                      Todays Date: {convertTime(result.dt)}
+                      <span className="font-bold">Date:</span>{" "}
+                      {convertTime(result.dt)}
                     </div>
                     <div className="p-5 h-1/3">
                       {handleImage(result.weather[0].description)}
                       <p>
-                        Weather description: {result.weather[0].description}
+                        <span className="font-bold">Weather description:</span>{" "}
+                        {result.weather[0].description}
                       </p>
                     </div>
                     <div className="p-5">
-                      Current Weather: {result.weather[0].main}
+                      <span className="font-bold">Current Weather:</span>{" "}
+                      {result.weather[0].main}
                     </div>
                     <div className="p-5">
                       <span className="font-black">Temp:</span>{" "}
