@@ -75,7 +75,11 @@ export default function Home() {
     //checks if clear skyes
     if (weather === weatherTypes[2]) {
       return (
-        <img className="rounded-lg" src={data[9].src} alt={data[9].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[9].src}
+          alt={data[9].alt}
+        ></img>
       );
     }
     //checks if cloudy
@@ -85,34 +89,54 @@ export default function Home() {
       weather === weatherTypes[4]
     ) {
       return (
-        <img className="rounded-lg" src={data[0].src} alt={data[0].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[0].src}
+          alt={data[0].alt}
+        ></img>
       );
     }
     //checks if partly cloudy
     if (weather === weatherTypes[5]) {
       return (
-        <img className="rounded-lg" src={data[5].src} alt={data[5].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[5].src}
+          alt={data[5].alt}
+        ></img>
       );
     }
     //checks if raining
     if (weather === weatherTypes[1]) {
       return (
-        <img className="rounded-lg" src={data[1].src} alt={data[1].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[1].src}
+          alt={data[1].alt}
+        ></img>
       );
     }
     //checks if heavy raining
     if (weather === weatherTypes[7] || weather === weatherTypes[8]) {
       return (
-        <img className="rounded-lg" src={data[10].src} alt={data[10].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[10].src}
+          alt={data[10].alt}
+        ></img>
       );
     }
     //checks for monderate showers
     if (weather === weatherTypes[6]) {
       return (
-        <img className="rounded-lg" src={data[7].src} alt={data[7].alt}></img>
+        <img
+          className="rounded-lg m-auto h-32"
+          src={data[7].src}
+          alt={data[7].alt}
+        ></img>
       );
     }
-    return <div className="rounded-lg">{weather}</div>;
+    return <div className="rounded-lg m-auto">{weather}</div>;
   };
 
   //console.log(JSON.stringify(searchResults));
@@ -140,7 +164,7 @@ export default function Home() {
                   <div className="h-2/3 bg-indigo-400 rounded-t-lg ">
                     <div className="p-5">
                       <span className="font-bold">Date:</span>{" "}
-                      {convertTime(result.dt)}
+                      {convertTime(result.dt).split(",")[0]}
                     </div>
                     <div className="p-5 h-1/3">
                       {handleImage(result.weather[0].description)}
