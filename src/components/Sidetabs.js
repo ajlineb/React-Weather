@@ -19,23 +19,17 @@ export default function Sidetabs() {
     }
   };
 
-  const handleSticky = (indexNumber) => {
-    if (indexNumber === 1) {
-      return "10";
-    } else return "0";
-  };
-
   const path = window.location.href.split("/");
-  console.log(path[4]);
+  //console.log(path[4]);
   return (
     <div className="flex flex-col p-3 gap-20 flex-initial shadow-lg bg-slate-800 w-28">
       <div className="sticky top-0">
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
           return (
             <div className="pb-3 pt-3">
               <Link
                 to={tab}
-                key={tab.id}
+                key={index}
                 active={active === tab}
                 onClick={() => {
                   setActive(tab);

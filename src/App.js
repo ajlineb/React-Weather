@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import WeatherMap from "./pages/WeatherMap";
 import WeatherTabFetch from "./components/WeatherTabFetch";
 import Sidetabs from "./components/Sidetabs";
+import LiveWeather from "./pages/LiveWeather";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Maps" element={<WeatherMap />} />
+          <Route exact path="/Maps/LiveWeather" element={<LiveWeather />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
