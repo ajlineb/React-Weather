@@ -32,6 +32,14 @@ export default function LiveHeat() {
       attribution:
         '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
+
+    L.tileLayer(
+      `http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${process.env.REACT_APP_API_KEY}`,
+      {
+        attribution:
+          '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }
+    ).addTo(map);
   });
   return (
     <div className="flex h-screen pb-16 basis-3/4 grow bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">

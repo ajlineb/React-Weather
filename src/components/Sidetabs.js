@@ -19,6 +19,11 @@ export default function Sidetabs() {
     }
   };
 
+  const isActive = (tab) => {
+    if (active === tab) return true;
+    else return false;
+  };
+
   const path = window.location.href.split("/");
   //console.log(path[4]);
   return (
@@ -30,7 +35,6 @@ export default function Sidetabs() {
               <Link
                 to={tab}
                 key={index}
-                active={active === tab}
                 onClick={() => {
                   setActive(tab);
                 }}
@@ -46,14 +50,14 @@ export default function Sidetabs() {
           );
         })}
         <div className="pb-6 pt-3">
-          <a href="https://www.linkedin.com/in/anthjlin/">
+          <a key={3} href="https://www.linkedin.com/in/anthjlin/">
             <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
               Linkdin
             </div>
           </a>
         </div>
         <div className="pb-6">
-          <a href="https://github.com/ajlineb">
+          <a key={4} href="https://github.com/ajlineb">
             <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
               Github
             </div>
