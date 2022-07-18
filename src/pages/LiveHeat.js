@@ -17,16 +17,10 @@ export default function LiveHeat() {
   useEffect(() => {
     let current_lat = 35.625789;
     let current_long = -79.0547899;
-    let current_zoom = 16;
-    let center_lat = current_lat;
-    let center_long = current_long;
-    let center_zoom = current_zoom;
+    let current_zoom = 5;
 
     // The <div id="map"> must be added to the dom before calling L.map('map')
-    let map = L.map("map", {
-      center: [center_lat, center_long],
-      zoom: center_zoom,
-    });
+    let map = L.map("map").setView([current_lat, current_long], current_zoom);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
