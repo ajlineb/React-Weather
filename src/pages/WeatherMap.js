@@ -40,11 +40,13 @@ export default function WeatherMap() {
                 Heat Radar
               </h2>
               <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                <img
-                  src="https://www.alabamawx.com/wp-content/uploads/2020/07/2020-07-04_11-11-55-600x540.png"
-                  alt="Heat Radar"
-                  className="w-full h-60 m-auto rounded-lg outline outline-2 outline-offset-2 outline-violet-800"
-                />
+                <Link to="LiveHeat">
+                  <img
+                    src="https://www.alabamawx.com/wp-content/uploads/2020/07/2020-07-04_11-11-55-600x540.png"
+                    alt="Heat Radar"
+                    className="w-full h-60 m-auto rounded-lg outline outline-2 outline-offset-2 outline-violet-800"
+                  />
+                </Link>
               </p>
               <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                 Are you curious how hot it is in your area or another? Find it
@@ -65,11 +67,13 @@ export default function WeatherMap() {
                 Wind Radar
               </h2>
               <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                <img
-                  src="https://www.weatherzone.com.au/news-thumbnail/2932264"
-                  alt="Wind Radar"
-                  className="w-full h-60 m-auto rounded-lg outline outline-2 outline-offset-2 outline-rose-400"
-                />
+                <Link to="LiveWind">
+                  <img
+                    src="https://www.weatherzone.com.au/news-thumbnail/2932264"
+                    alt="Wind Radar"
+                    className="w-full h-60 m-auto rounded-lg outline outline-2 outline-offset-2 outline-rose-400"
+                  />
+                </Link>
               </p>
               <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                 Sure is windy outside but how fast is it actually going? Lets

@@ -3,7 +3,7 @@ import Sidetabs from "../components/Sidetabs";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-export default function LiveWeather() {
+export default function LiveWind() {
   useEffect(() => {
     const fetchAPI = async () => {
       const url = `https://tile.openweathermap.org/map/precipitation/0/0/0.png?appid=${process.env.REACT_APP_API_KEY}`;
