@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Sidetabs from "../components/Sidetabs";
 
 export default function WeatherMap() {
   return (

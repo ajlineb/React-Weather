@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import data from "../utils/imageBase";
-import Sidetabs from "../components/Sidetabs";
-import WeatherTabFetch from "../components/WeatherTabFetch";
 
 //will continue to add more types as I discover the types the API has
 const weatherTypes = [
