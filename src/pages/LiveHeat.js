@@ -27,7 +27,7 @@ export default function LiveHeat() {
     }).addTo(map);
 
     L.tileLayer(
-      `http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${process.env.REACT_APP_API_KEY}`,
+      `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${process.env.REACT_APP_API_KEY}`,
       {
         attribution:
           '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
