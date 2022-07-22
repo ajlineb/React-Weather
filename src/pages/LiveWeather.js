@@ -3,16 +3,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 export default function LiveWeather() {
-  // useEffect(() => {
-  //   const fetchAPI = async () => {
-  //     const url = `https://tile.openweathermap.org/map/precipitation/0/0/0.png?appid=${process.env.REACT_APP_API_KEY}`;
-
-  //     const resp = await fetch(url);
-  //     const resJSON = await resp.json();
-  //     console.log(resJSON);
-  //   };
-  //   fetchAPI();
-  // });
   useEffect(() => {
     let current_lat = 35.625789;
     let current_long = -79.0547899;
