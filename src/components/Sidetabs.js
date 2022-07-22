@@ -18,11 +18,6 @@ export default function Sidetabs() {
     }
   };
 
-  const isActive = (tab) => {
-    if (active === tab) return true;
-    else return false;
-  };
-
   const path = window.location.href.split("/");
   //console.log(path[4]);
   return (

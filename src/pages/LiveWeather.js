@@ -35,7 +35,10 @@ export default function LiveWeather() {
     ).addTo(map);
   });
   return (
-    <div className="flex h-screen pb-16 basis-3/4 grow bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex flex-col h-screen pb-16 basis-3/4 grow bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <h1 className="ml-auto mr-auto mt-11 mb-11 justify-center text-6xl text-slate-100 font-mono font-black">
+        Current Weather
+      </h1>
       <div className="m-auto bg-slate-600 justify-center outline outline-offset-1 outline-4 rounded-lg overflow-hidden">
         <div id="map"></div>
       </div>
