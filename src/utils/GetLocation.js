@@ -52,31 +52,31 @@ export default function GetLocation({ setSearchResults3 }) {
   };
 
   return (
-    <div className="p-1 basis-2/3 flex flex-wrap justify-left items-center">
+    <div className="p-1 basis-2/3 flex flex-wrap justify-center items-center text-sm sm:text-sm md:text-base">
       <button
-        className="px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
+        className="px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none  shrink h-10"
         onClick={getLocation}
       >
         Get Location
       </button>
-      {lat && <h1 className="p-2 font-bold">Coordinates:</h1>}
-      {status && <p className="p-2">{status}</p>}
+      {/* {lat && <h1 className="p-0 sm:p-0 md-p-2 font-bold">Coordinates:</h1>}
+      {status && <p className="p-0 sm:p-0 md-p-2">{status}</p>}
       {lat && (
-        <p className="p-2">
+        <p className="p-0 sm:p-0 md-p-2">
           Latitude: <span className="font-bold text-green-400">{lat}</span>
         </p>
       )}
       {long && (
-        <p className="p-2">
+        <p className="p-0 sm:p-0 md-p-2">
           Longitude: <span className="font-bold text-teal-300">{long}</span>
         </p>
       )}
-      {/* {coords && (
+      {coords && (
         <p className="p-2">
           Coords:{" "}
           <span className="text-slate-900">{`${coords[0]} lat and ${coords[1]} long`}</span>
         </p>
-      )} */}
+      )}
       {del && (
         <button
           className=" px-3 py-2 text-white font-bold rounded-lg bg-rose-700 hover:bg-pink-700 active:bg-pink-400 focus:outline-none focus:ring focus:ring-pink-400 shrink h-10"
@@ -84,7 +84,7 @@ export default function GetLocation({ setSearchResults3 }) {
         >
           Delete Coords
         </button>
-      )}
+      )} */}
     </div>
   );
 }

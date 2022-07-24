@@ -54,8 +54,8 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
   }, [searchResults3]);
 
   return (
-    <div className="city-search basis-1/3 flex justify-center items-center">
-      <div className=" w-1/2 shrink relative">
+    <div className="city-search basis-1/2 flex justify-center items-center">
+      <div className="xl:w-3/5 md:w-4/5 shrink relative">
         <img
           className="absolute left-3 h-5 top-1/2 -translate-y-1/2"
           type="image"
