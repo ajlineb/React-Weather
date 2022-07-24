@@ -6,8 +6,6 @@ import image from "../img/magnify.svg";
 //updates as info is written in the onchange function
 //onsubmit the data is passed from the searchbar to the ApiSearch function
 
-//add a toggle switch for city search and zip search
-
 export default function SearchBox() {
   const [text, setText] = useState("");
 

@@ -157,7 +157,10 @@ export default function Home() {
             searchResults.daily.map((result, id) => {
               //this is where the goods is going!!!
               return (
-                <div key={id} className="basis-1/5">
+                <div
+                  key={id}
+                  className="basis-full xl:basis-1/5 md:basis-1/3 xs:basis-1/2"
+                >
                   <div className="rounded-lg mb-16 ">
                     <div className="text-lg font-bold "></div>
                     {/* place the current day info here */}

@@ -35,11 +35,6 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
   }, [search]);
 
   useEffect(() => {
-    setCoLocation(searchResults3);
-    //console.log(searchResults3, "from tab fetch");
-  }, [searchResults3]);
-
-  useEffect(() => {
     if (searchResults3 === null) return;
     const fetchAPI = async () => {
       //console.log(searchResults3[0], searchResults3[1]);
@@ -77,38 +72,6 @@ export default function WeatherTabFetch({ setSearchResults2, searchResults3 }) {
           }}
         ></input>
       </div>
-      {/* <button
-        className="px-3 py-2 text-white font-bold rounded-r-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-indigo-700 shrink h-10"
-        type="submit"
-      >
-        Search!
-      </button> */}
-      {/* {!city || city === undefined ? (
-        <div>
-          <h3>
-            <b>No Data Found</b>
-          </h3>
-        </div>
-      ) : (
-        <div>
-          <div className="info">
-            <h2 className="location">
-              <i className="fas fa-street-view"></i>
-              {city.timezone}
-            </h2>
-            <h1 className="temp">
-              {Math.floor(city.daily[0].feels_like.day - 273.15)} Day Temp
-              Celsius
-            </h1>
-            <h3 className="tempmin_max">
-              {Math.floor(city.daily[0].feels_like.eve - 273.15)} Evening Temp
-              Celsius |<br />{" "}
-              {Math.floor(city.daily[0].feels_like.night - 273.15)} Night Temp
-              Celsius
-            </h3>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }
