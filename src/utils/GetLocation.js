@@ -52,7 +52,7 @@ export default function GetLocation({ setSearchResults3 }) {
   };
 
   return (
-    <div className="p-1 basis-2/3 flex flex-wrap justify-center items-center text-sm sm:text-sm md:text-base">
+    <div className="p-1 basis-2/3 flex flex-wrap justify-left items-center text-sm sm:text-sm md:text-base">
       <button
         className="px-3 py-2 text-white font-bold rounded-lg bg-indigo-700 hover:bg-violet-700 active:bg-violet-700 focus:outline-none  shrink h-10"
         onClick={getLocation}
