@@ -46,7 +46,7 @@ export default function Sidetabs() {
         <div className="pb-6 pt-3">
           <a key={3} href="https://www.linkedin.com/in/anthjlin/">
             <div className="h-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md flex justify-center items-center">
-              Linkdin
+              Linkedin
             </div>
           </a>
         </div>
