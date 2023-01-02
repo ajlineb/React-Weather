@@ -13,7 +13,7 @@ export default function Footer() {
         </a>
       </h1>
 
-      <h1>© 2022</h1>
+      <h1>© 2022 - 2023</h1>
     </div>
   );
 }
